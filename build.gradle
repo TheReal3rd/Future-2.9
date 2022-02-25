@@ -1,0 +1,174 @@
+// forge's stuff
+buildscript {
+    repositories {
+        jcenter()
+        maven {
+            name = 'forge'
+            url = 'http://files.minecraftforge.net/maven'
+        }
+        maven {
+            name = 'SpongePowered'
+            url = 'https://repo.spongepowered.org/maven'
+        }
+        maven {
+            name = 'ViaVersion'
+            url = 'https://repo.viaversion.com'
+        }
+        maven {
+            name = 'jitpack.io'
+            url = 'https://jitpack.io'
+        }
+    }
+    dependencies {
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
+        classpath 'org.spongepowered:mixingradle:0.6-SNAPSHOT'
+        classpath 'com.github.jengelman.gradle.plugins:shadow:1.2.3'
+    }
+}
+
+apply plugin: 'net.minecraftforge.gradle.forge'
+apply plugin: 'org.spongepowered.mixin'
+apply plugin: 'com.github.johnrengelman.shadow'
+
+version project.modVersion
+group project.modGroup // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+
+sourceCompatibility = targetCompatibility = '1.8'
+compileJava {
+    sourceCompatibility = targetCompatibility = '1.8'
+}
+
+minecraft {
+    version = project.forgeVersion
+    runDir = 'run'
+    mappings = project.mcpVersion
+    coreMod = 'me.third.right.mixin.MixinLoaderForge'
+    makeObfSourceJar = true
+}
+
+repositories {
+    maven {
+        name = 'spongepowered-repo'
+        url = 'https://repo.spongepowered.org/maven/'
+    }
+    maven {
+        name = 'impactdevelopment-repo'
+        url = 'https://impactdevelopment.github.io/maven/'
+    }
+    maven {
+        name = 'swt-repo'
+        url = "http://maven-eclipse.github.io/maven"
+    }
+    maven {
+        name = "jitpack.io"
+        url = "https://jitpack.io"
+    }
+    maven {
+        name = 'ViaVersion'
+        url = 'https://repo.viaversion.com'
+    }
+    mavenCentral()
+}
+
+dependencies {
+    //mixin needs to be distributed with the mod, very important
+    compile("org.spongepowered:mixin:0.7.11-SNAPSHOT") {
+        exclude module: 'launchwrapper'
+        exclude module: 'guava'
+        exclude module: 'gson'
+        exclude module: 'commons-io'
+        exclude module: 'log4j-core'
+    }
+    compile group: 'net.jodah', name: 'typetools', version: '0.6.3'
+    compile group: 'org.yaml', name: 'snakeyaml', version: '1.29'
+    compile group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
+    compile(group: 'org.reflections', name: 'reflections', version: '0.10.2') {
+        exclude group: 'com.google.guava', module: 'guava'
+    }
+    //ViaVersion
+    compile("com.viaversion:viaversion:4.0.2-SNAPSHOT")
+    compile("com.viaversion:viabackwards:4.0.2-SNAPSHOT")
+    //Baritone
+    implementation 'com.github.cabaletta:baritone:1.2.14'
+    compile('cabaletta:baritone-api:1.2')
+    //Discord RPC
+    compile ('club.minnced:java-discord-rpc:2.0.1')
+    //JavaZoom
+    compile('javazoom:jlayer:1.0.1')
+}
+
+mixin {
+    defaultObfuscationEnv searge
+    add sourceSets.main, 'mixins.third.refmap.json'
+}
+
+processResources {
+    // this will ensure that this task is redone when the versions change.
+    inputs.property 'version', project.version
+    inputs.property 'mcversion', project.minecraft.version
+
+    // replace stuff in mcmod.info, nothing else
+    from(sourceSets.main.resources.srcDirs) {
+        include 'mcmod.info'
+
+        // replace version and mcversion
+        expand 'version': project.version, 'mcversion': project.minecraft.version
+    }
+
+    // copy everything else, thats not the mcmod.info
+    from(sourceSets.main.resources.srcDirs) {
+        exclude 'mcmod.info'
+    }
+
+    // move _at.cfg into META-INF
+    rename '(.+_at.cfg)', 'META-INF/$1'
+}
+
+shadowJar {
+    dependencies {
+        include(dependency('org.spongepowered:mixin'))
+        include(dependency('net.jodah:typetools'))
+        include(dependency('org.yaml:snakeyaml'))
+        include(dependency('org.reflections:reflections'))
+        include(dependency('org.javassist:javassist'))
+		include(dependency('com.googlecode.json-simple:json-simple:1.1.1'))
+        include(dependency('net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'))
+        //Discord RPC
+        include(dependency('club.minnced:java-discord-rpc:2.0.1'))
+        //ViaVersion Shadow
+        include(dependency('com.viaversion:viaversion:4.0.2-SNAPSHOT'))
+        include(dependency('com.viaversion:viabackwards:4.0.2-SNAPSHOT'))
+        //Javazoom
+        include(dependency('javazoom:jlayer:1.0.1'))
+    }
+    exclude 'dummyThing'
+    exclude 'LICENSE.txt'
+    exclude 'LICENSE'
+    exclude 'fabric.mod.json'
+    exclude 'bungee.yml'
+    exclude 'plugin.yml'
+    exclude 'velocity-plugin.json'
+    classifier = 'release'
+}
+
+reobf {
+    shadowJar {
+        mappingType = 'searge'
+        classpath = sourceSets.main.compileClasspath
+    }
+}
+
+jar {
+    manifest {
+        attributes(
+                'MixinConfigs': 'mixins.third.json',
+                'tweakClass': 'org.spongepowered.asm.launch.MixinTweaker',
+                'TweakOrder': 0,
+                'FMLCorePluginContainsFMLMod': 'true',
+                'FMLCorePlugin': 'me.third.right.mixin.MixinLoaderForge',
+                'ForceLoadAsMod': 'true'
+        )
+    }
+}
+
+build.dependsOn(shadowJar)

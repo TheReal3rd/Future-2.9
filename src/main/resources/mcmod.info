@@ -1,0 +1,15 @@
+[
+  {
+    "modid": "wurstminustwo",
+    "name": "Wurst- 2",
+    "description": "Wurst- 2 big hack.",
+    "version": "3.8",
+    "mcversion": "1.12.2",
+    "logoFile": "based.png",
+    "url": "https://github.com/TheReal3rd/Future-2.12-De-Obf-Crack",
+    "updateUrl": "",
+    "authorList": ["Third_Right (Wurst-)", "Alexander01998 (ForgeWurst)"],
+    "screenshots": [],
+    "dependencies": []
+  }
+]
