@@ -7,8 +7,7 @@ import net.futureclient.client.jf;
 import net.minecraft.network.play.server.SPacketChat;
 import net.minecraft.network.play.server.SPacketTimeUpdate;
 
-public class VG
-extends Ha<jf> {
+public class VG extends Ha<jf> {
     public final RG f$d;
 
     @Override
@@ -48,8 +47,7 @@ import net.futureclient.client.Vd;
 import net.futureclient.client.kH;
 import org.apache.logging.log4j.Level;
 
-public class Vg
-extends Ha<Vd> {
+public class Vg extends Ha<Vd> {
     public final kH f$d;
 
     public Vg(kH kH2) {
@@ -59,7 +57,7 @@ extends Ha<Vd> {
     @Override
     public void f$E(Vd vd) {
         La.f$E().f$E(Level.INFO, "Initiated client shutdown.");
-        0.f$d.f$E().f$E().forEach(ib -> ib.f$a(new Object[0]));
+        this.f$d.f$E().f$E().forEach(ib -> ib.f$a(new Object[0]));
         La.f$E().f$E(Level.INFO, "Finished client shutdown.");
     }
 }

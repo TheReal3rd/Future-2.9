@@ -109,8 +109,7 @@ import net.futureclient.client.GA;
 import net.futureclient.client.J;
 import net.futureclient.client.kH;
 
-public class zI
-extends GA {
+public class zI extends GA {
     public zI() {
         zI zI2;
         String[] stringArray = new String[2];

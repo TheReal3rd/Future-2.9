@@ -69,8 +69,7 @@ import net.futureclient.client.yG;
 import net.futureclient.client.yi;
 import net.futureclient.client.zI;
 
-public class AG
-extends QE<GA> {
+public class AG extends QE<GA> {
     private String f$d;
 
     public static String f$E(AG aG, String string) {
@@ -92,13 +91,13 @@ extends QE<GA> {
         AG aG2 = aG;
         aG.f$d = ".";
         aG2.f$d = new ArrayList();
-        aG.f$a(new zI());
-        aG2.f$a(new bG());
-        aG2.f$a(new lh());
-        aG2.f$a(new Qi());
-        aG2.f$a(new DH());
-        aG2.f$a(new RH());
-        aG2.f$a(new eh());
+        aG.f$a(new zI());//Done
+        aG2.f$a(new bG());//Done
+        aG2.f$a(new lh());//Done
+        aG2.f$a(new Qi());//Done
+        aG2.f$a(new DH());//Done
+        aG2.f$a(new RH());//Done
+        aG2.f$a(new eh());//Done
         aG2.f$a(new Xg());
         aG2.f$a(new fi());
         aG2.f$a(new EG());

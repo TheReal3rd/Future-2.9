@@ -43,8 +43,7 @@ package net.futureclient.client;
 import net.futureclient.client.IE;
 import net.minecraft.network.Packet;
 
-public final class jf
-extends IE {
+public final class jf extends IE {
     public jf(Packet<?> packet) {
         super(packet);
     }

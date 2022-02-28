@@ -1,8 +1,8 @@
 package net.futureclient.client.deof.modules;
 
 import com.google.gson.*;
-import net.futureclient.client.*;
-import net.futureclient.client.deof.event.EventBase;
+import net.futureclient.client.deof.FutureClient;
+import net.futureclient.client.deof.Unknown.kB_Unknown;
 import net.futureclient.client.deof.settings.EnumSetting;
 import net.futureclient.client.deof.settings.listSetting.BlockList;
 import net.futureclient.client.deof.settings.listSetting.BlockStateList;
@@ -22,7 +22,7 @@ import java.io.IOException;
 import java.util.*;
 
 public class ModuleBase implements IModule {
-    private List<EventBase> events;// OG f$g OG kB
+    private List<kB_Unknown> events;// OG f$g OG kB
     public static Minecraft mc = Minecraft.getMinecraft();// OG f$d
     private List<SettingsBase<?>> settings;// OG f$M OG z
     private String[] terms;// OG f$b
@@ -38,9 +38,9 @@ public class ModuleBase implements IModule {
         this.terms = searchTerms;
     }
 
-    public void setEvents(EventBase ... kBArray) {
+    public void setEvents(kB_Unknown... kBArray) {
         Collections.addAll(this.events, kBArray);
-        this.events.sort(Comparator.comparing(EventBase::getString));
+        this.events.sort(Comparator.comparing(kB_Unknown::getString));
     }
 
     public SettingsBase<?> searchSettings(String string) {
@@ -64,7 +64,7 @@ public class ModuleBase implements IModule {
         return this.settings;
     }
 
-    public void setEvents(List<EventBase> list) {
+    public void setEvents(List<kB_Unknown> list) {
         this.events = list;
     }
 
@@ -87,7 +87,7 @@ public class ModuleBase implements IModule {
      * Enabled aggressive exception aggregation
      */
     public void save() {
-        File file = new File(kH.f$E().f$E(), "modules");//TODO fix this its probably get the name of the client.
+        File file = new File(FutureClient., "modules");//TODO fix this its probably get the name of the client.
         if (!file.exists()) file.mkdir();
 
         if ((file = new File(file, this.getName().toLowerCase().replace(" ", "") + ".json")).exists()) file.delete();
@@ -299,15 +299,15 @@ public class ModuleBase implements IModule {
         return this.category;
     }
 
-    public EventBase getEvent(String string) {
-        for (EventBase kB2 : this.events) {
+    public kB_Unknown getEvent(String string) {
+        for (kB_Unknown kB2 : this.events) {
             if (!string.equalsIgnoreCase(kB2.getString())) continue;
             return kB2;
         }
         return null;
     }
 
-    public List<EventBase> getEvents() {
+    public List<kB_Unknown> getEvents() {
         return this.events;
     }
 

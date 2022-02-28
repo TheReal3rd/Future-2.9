@@ -3,8 +3,7 @@ package net.futureclient.client;
 import net.futureclient.client.RF;
 import net.minecraft.network.Packet;
 
-public abstract class Ye
-extends RF {
+public abstract class Ye extends RF {
     private final Packet<?> f$d;
 
     public <T extends Packet<?>> T f$E() {

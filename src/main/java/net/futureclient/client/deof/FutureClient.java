@@ -5,14 +5,15 @@ import net.futureclient.client.AG;
 import net.futureclient.client.AI;
 import net.futureclient.client.Ah;
 import net.futureclient.client.CE;
-import net.futureclient.client.Hf;
-import net.futureclient.client.IH;
-import net.futureclient.client.La;
-import net.futureclient.client.RG;
 import net.futureclient.client.Vg;
 import net.futureclient.client.Vh;
 import net.futureclient.client.We;
+import net.futureclient.client.deof.event.EventManager;
+import net.futureclient.client.deof.event.events.ShutdownEvent;
 import net.futureclient.client.deof.modules.ModuleManager;
+import net.futureclient.client.deof.utils.other.ClientListeners.ShutdownListener;
+import net.futureclient.client.deof.utils.other.FutureLogger;
+import net.futureclient.client.deof.utils.other.TPSCalc.TPSCalc;
 import net.futureclient.client.fh;
 import net.futureclient.client.lf;
 import net.futureclient.client.mI;
@@ -21,116 +22,95 @@ import net.futureclient.client.xI;
 import org.apache.logging.log4j.Level;
 
 public class FutureClient {
-    private final CE f$B; // Unknown
-    private final IH f$c; // Unknown
-    private final lf f$a; // Something with Macros Configs
-    private final AI f$g; // Unknown Possibly Window Title.
-    private File f$L; // User home Directory.
+    private final CE f$B; // Unknown OG CE f$B
+    private final EventManager eventManager; // Seems to be the event system OG IH f$c
+    private final lf f$a; // Something with Macros Configs OG lf f$a
+    private final AI f$g; // Unknown Possibly Window Title. OG AI f$g
+    private File futureDir; // User home Directory. OG f$L
     private static FutureClient INSTANCE;// OG "kH f$H;" Client INSTANCE
-    private final mI f$b; // Unknown String manipulation.
-    private final xI f$K; // Alt Manager
-    public static String clientName; // OG f$m;
-    private Vh f$d; // System Tray
-    private final mg f$e;// Friends
-    private final AG f$C;// Commands
-    private final Ah f$j;// Unknown Really fucked tho.
+    private final mI f$b; // regs new Event prob Account Manager or Tab OG mI f$b
+    private final xI f$K; // Alt Manager OG xI f$K
+    public static String clientName = "Future"; // OG f$m;
+    private Vh f$d; // System Tray OG Vh f$d
+    private final mg f$e;// Friends OG mg f$e
+    private final AG f$C;// Commands OG AG f$C
+    private final Ah f$j;// Unknown Really fucked tho. OG Ah f$j
     public long startTime; // OG f$l
-    private final We f$I;// Unknown
-    private final fh f$M;// Unknown
-    private final RG f$i;// Probably TPS calculator
-    public static String version; // OG f$D
+    private final We f$I;// Unknown OG We f$I
+    private final fh f$M;// Unknown OG fh f$M
+    private final TPSCalc tpsCalc;// Probably TPS calculator OG RG f$i
+    public static String version = "2.9"; // OG f$D
     private final ModuleManager moduleManager;// OG Hf f$A | Modules
 
     public Vh f$E() {
-        kH kH2;
-        return kH2.f$d;
+        return this.f$d;
     }
 
     public mI f$E() {
-        kH kH2;
-        return kH2.f$b;
+        return this.f$b;
     }
 
-    public File f$E() {
-        kH kH2;
-        return kH2.f$L;
+    public File getFutureDir() {
+        return this.futureDir;
     }
 
     public We f$E() {
-        kH kH2;
-        return kH2.f$I;
+        return this.f$I;
     }
 
     public mg f$E() {
-        kH kH2;
-        return kH2.f$e;
+        return this.f$e;
     }
 
     public fh f$E() {
-        kH kH2;
-        return kH2.f$M;
+        return this.f$M;
     }
 
     public void f$E(Vh vh) {
-        0.f$d = vh;
+        this.f$d = vh;
     }
 
     public lf f$E() {
-        kH kH2;
-        return kH2.f$a;
+        return this.f$a;
     }
 
     public FutureClient() {
         File file;
         this.startTime = System.nanoTime() / 1000000L;
-        La.f$E().f$E(Level.INFO, "Initiated client startup.");
-        f$H = kH2;
+        FutureLogger.getInstance().log(Level.INFO, "Initiated client startup.");
+        INSTANCE = this;
         kH kH3 = this;
         kH2.f$g = new AI();
         kH kH4 = this;
-        kH4.f$L = new File(System.getProperty("user.home"), clientName);
-        if (!kH2.f$L.exists()) {
+        this.futureDir = new File(System.getProperty("user.home"), clientName);
+        if (!this.futureDir.exists()) {
             Object[] objectArray = new Object[1];
-            objectArray[0] = this.f$L.mkdir() ? "Created" : "Failed to create";
-            La.f$E().f$E(Level.INFO, String.format("%s client directory.", objectArray));
+            objectArray[0] = this.futureDir.mkdir() ? "Created" : "Failed to create";
+            FutureLogger.getInstance().log(Level.INFO, String.format("%s client directory.", objectArray));
         }
-        if (!(file = new File(kH.f$H.f$E(), "songs")).exists()) {
-            file.mkdir();
-        }
-        if (!(file = new File(kH.f$H.f$E(), "spammer")).exists()) {
-            file.mkdir();
-        }
-        this.f$c = new IH();
-        kH kH5 = this;
+        if (!(file = new File(INSTANCE.getFutureDir(), "songs")).exists()) file.mkdir();
+
+        if (!(file = new File(INSTANCE.getFutureDir(), "spammer")).exists()) file.mkdir();
+
+        this.eventManager = new EventManager();
         this.f$I = new We();
-        kH kH6 = this;
-        kH5.f$B = new CE();
-        kH kH7 = this;
+        this.f$B = new CE();
         this.f$C = new AG();
-        kH kH8 = this;
-        this.moduleManager = new Hf();
-        kH kH9 = this;
+        this.moduleManager = new ModuleManager();
         this.f$a = new lf();
-        kH kH10 = this;
         this.f$e = new mg();
-        kH kH11 = this;
         this.f$K = new xI();
-        kH kH12 = this;
-        this.f$i = new RG();
-        kH kH13 = this;
+        this.tpsCalc = new TPSCalc();
         this.f$b = new mI();
-        kH kH14 = this;
         this.f$M = new fh();
-        kH kH15 = this;
         this.f$j = new Ah();
-        this.f$E().f$E().forEach(ib -> ib.f$E(new Object[0]));
-        this.f$E().f$a(new Vg(this));
-        La.f$E().f$E(Level.INFO, "Finished client startup.");
+        this.f$E().f$E().forEach(ib -> ib.f$E(new Object[0]));//Probably the Module Config Load / reader TODO finish this.
+        this.getEventManager().subscribe(new ShutdownListener(this));
+        FutureLogger.getInstance().log(Level.INFO, "Finished client startup.");
     }
 
-    public RG f$E() {
-        kH kH2;
-        return kH2.f$i;
+    public TPSCalc getTpsCalc() {
+        return this.tpsCalc;
     }
 
     public AG f$E() {
@@ -152,14 +132,8 @@ public class FutureClient {
         return this.moduleManager;
     }
 
-    public IH f$E() {
-        kH kH2;
-        return kH2.f$c;
-    }
-
-    static {
-        clientName = "Future";
-        version = "2.9";
+    public EventManager getEventManager() {
+        return this.eventManager;
     }
 
     public AI f$E() {

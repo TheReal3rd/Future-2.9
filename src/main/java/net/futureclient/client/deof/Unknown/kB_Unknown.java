@@ -1,9 +1,10 @@
-package net.futureclient.client.deof.event;
+package net.futureclient.client.deof.Unknown;
 
-public abstract class EventBase implements IEvent {
+//TODO figure out whether this is correct.
+public abstract class kB_Unknown implements kB_F_Unknown {
     private String string;//OG f$d
 
-    public EventBase(String string) {
+    public kB_Unknown(String string) {
         this.string = string;
     }
 
