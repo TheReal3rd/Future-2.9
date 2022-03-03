@@ -68,30 +68,3 @@ extends RF {
         hg2.f$d = blockPos;
     }
 }
-package net.futureclient.client;
-
-import net.futureclient.client.GA;
-import net.futureclient.client.Pg;
-
-public class hG
-extends GA {
-    @Override
-    public String f$E() {
-        return null;
-    }
-
-    public hG() {
-        hG hG2;
-        String[] stringArray = new String[3];
-        stringArray[0] = "Damage";
-        stringArray[1] = "dmg";
-        stringArray[2] = "td";
-        super(stringArray);
-    }
-
-    @Override
-    public String f$E(String[] stringArray) {
-        Pg.f$e();
-        return "Damaged.";
-    }
-}

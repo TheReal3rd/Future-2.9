@@ -2,7 +2,7 @@ package net.futureclient.client.deof.modules;
 
 import com.google.gson.*;
 import net.futureclient.client.deof.FutureClient;
-import net.futureclient.client.deof.Unknown.kB_Unknown;
+import net.futureclient.client.deof.unknown.kB_Unknown;
 import net.futureclient.client.deof.settings.EnumSetting;
 import net.futureclient.client.deof.settings.listSetting.BlockList;
 import net.futureclient.client.deof.settings.listSetting.BlockStateList;

@@ -1,4 +1,4 @@
-package net.futureclient.client.deof.Unknown;
+package net.futureclient.client.deof.unknown;
 
 //TODO figure out whether this is correct.
 public abstract class kB_Unknown implements kB_F_Unknown {

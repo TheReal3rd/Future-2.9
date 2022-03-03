@@ -1,38 +1,43 @@
 package net.futureclient.client.deof.commands.manager;
 
 import net.futureclient.client.*;
+import net.futureclient.client.deof.commands.commands.BreedCMD;
+import net.futureclient.client.deof.commands.commands.ConnectCMD;
+import net.futureclient.client.deof.utils.ObjectList;
 
-public class CommandManager {
-    private String f$d;
+import java.util.ArrayList;
+import java.util.Comparator;
 
-    public static String f$E(net.futureclient.client.AG aG, String string) {
-        aG.f$d = string;
-        return aG.f$d;
+public class CommandManager extends ObjectList<CommandBase> {
+    private String prefix;// OG f$d
+
+    public static String setPrefix(CommandManager aG, String string) {
+        aG.prefix = string;
+        return aG.prefix;
     }
 
-    public static String f$E(net.futureclient.client.AG aG) {
-        return aG.f$d;
+    public static String getPrefix(CommandManager aG) {
+        return aG.prefix;
     }
 
-    public String f$E() {
-        net.futureclient.client.AG aG;
-        return aG.f$d;
+    public String getPrefix() {
+        return this.prefix;
     }
 
-    public AG() {
-        net.futureclient.client.AG aG;
-        net.futureclient.client.AG aG2 = aG;
-        aG.f$d = ".";
-        aG2.f$d = new ArrayList();
-        //TODO add reg for commands.
-        aG2.f$d.sort(Comparator.comparing(gA -> gA.f$E()[0]));
+    public CommandManager() {
+        this.prefix = ".";
+        this.list = new ArrayList<CommandBase>();
+        //Reg START
+        this.add(new BreedCMD());
+        this.add(new ConnectCMD());
+        //Reg END
+        this.list.sort(Comparator.comparing(gA -> gA.getArgs()[0]));
         kH.f$E().f$E().f$a(new Ai(aG));
         new Vi(aG, "command_prefix.txt");
     }
 
-    @Override
-    public void f$E(String string) {
-        0.f$d = string;
+    public void setPrefix(String string) {
+        this.prefix = string;
     }
 
 }

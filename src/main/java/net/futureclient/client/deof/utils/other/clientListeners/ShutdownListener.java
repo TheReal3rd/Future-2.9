@@ -1,4 +1,4 @@
-package net.futureclient.client.deof.utils.other.ClientListeners;
+package net.futureclient.client.deof.utils.other.clientListeners;
 
 import net.futureclient.client.deof.FutureClient;
 import net.futureclient.client.deof.event.Listener;

@@ -1,8 +1,40 @@
-package net.futureclient.client;
+package net.futureclient.client.deof.commands.commands;
 
-import net.futureclient.client.GA;
-import net.futureclient.client.kH;
+import net.futureclient.client.deof.commands.manager.CommandBase;
 
+public class WatermarkCMD extends CommandBase {
+
+    public WatermarkCMD() {
+        super(new String[] {"Watermark", "setwatermark", "clientname", "setname", "setclientname"});
+    }
+
+    @Override
+    public String execute(String[] object) {
+        if (((String[])object).length >= 1) {
+            int n;
+            StringBuilder stringBuilder = new StringBuilder();
+            int n2 = ((String[])object).length;
+            int n3 = n = 0;
+            while (n3 < n2) {
+                String string = object[n];
+                stringBuilder.append(string);
+                stringBuilder.append(" ");
+                n3 = ++n;
+            }
+            object = stringBuilder.toString().trim();
+            kH.f$E().f$E((String)object);
+            return String.format("Watermark has been set to %s.", object);
+        }
+        return null;
+    }
+
+    @Override
+    public String getInfo() {
+        return "&e[name]";
+    }
+}
+
+/*
 public class Ui
 extends GA {
     @Override
@@ -41,3 +73,4 @@ extends GA {
         return "&e[name]";
     }
 }
+ */

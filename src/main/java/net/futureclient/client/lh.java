@@ -1,37 +1,5 @@
 package net.futureclient.client;
 
-import net.futureclient.client.GA;
-import net.futureclient.client.kH;
-
-public class lh
-extends GA {
-    @Override
-    public String f$E() {
-        return "&e[char]";
-    }
-
-    @Override
-    public String f$E(String[] object) {
-        if (((String[])object).length == 1) {
-            if ((object = object[0]).equalsIgnoreCase(kH.f$E().f$E().f$E())) {
-                return "That is already your prefix.";
-            }
-            kH.f$E().f$E().f$E((String)object);
-            return String.format("Command prefix set to %s.", object);
-        }
-        return null;
-    }
-
-    public lh() {
-        lh lh2;
-        String[] stringArray = new String[2];
-        stringArray[0] = "Prefix";
-        stringArray[1] = "Pref";
-        super(stringArray);
-    }
-}
-package net.futureclient.client;
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;

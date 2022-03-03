@@ -1,38 +1,5 @@
 package net.futureclient.client;
 
-import net.futureclient.client.GA;
-import net.futureclient.client.kH;
-
-public class TG
-extends GA {
-    @Override
-    public String f$E() {
-        return "&e[module] [name]";
-    }
-
-    @Override
-    public String f$E(String[] stringArray) {
-        if (stringArray.length == 2) {
-            if (kH.f$E().f$E().f$E(stringArray[0]) != null) {
-                kH.f$E().f$E().f$E(stringArray[0]).f$a(stringArray[1]);
-                return new StringBuilder().insert(0, stringArray[0]).append(" has been renamed to ").append(stringArray[1]).append(".").toString();
-            }
-            return new StringBuilder().insert(0, "Module ").append(stringArray[0]).append(" does not exist.").toString();
-        }
-        return null;
-    }
-
-    public TG() {
-        TG tG;
-        String[] stringArray = new String[3];
-        stringArray[0] = "Rename";
-        stringArray[1] = "ModuleName";
-        stringArray[2] = "ModName";
-        super(stringArray);
-    }
-}
-package net.futureclient.client;
-
 public class tg {
     private double f$d;
     private String f$g;

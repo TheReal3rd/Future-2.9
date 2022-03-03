@@ -1,4 +1,4 @@
-package net.futureclient.client.deof.utils.other.TPSCalc;
+package net.futureclient.client.deof.utils.other.tpsCalc;
 
 import net.futureclient.client.deof.utils.other.DelayTimer;
 

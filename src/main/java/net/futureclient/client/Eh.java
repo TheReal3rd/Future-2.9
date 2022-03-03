@@ -1,43 +1,5 @@
 package net.futureclient.client;
 
-import java.awt.Desktop;
-import java.io.File;
-import java.io.IOException;
-import net.futureclient.client.GA;
-import net.futureclient.client.kH;
-
-public class Eh
-extends GA {
-    @Override
-    public String f$E(String[] stringArray2) {
-        try {
-            Desktop.getDesktop().open(new File(kH.f$E().f$E().toURI()));
-        }
-        catch (IOException stringArray2) {
-            return "Failed to open folder.";
-        }
-        return "Opened the Future folder.";
-    }
-
-    public Eh() {
-        Eh eh;
-        String[] stringArray = new String[6];
-        stringArray[0] = "OpenFolder";
-        stringArray[1] = "OpenTheFolder";
-        stringArray[2] = "folder";
-        stringArray[3] = "FolderOpen";
-        stringArray[4] = "OF";
-        stringArray[5] = "FolderOpener";
-        super(stringArray);
-    }
-
-    @Override
-    public String f$E() {
-        return null;
-    }
-}
-package net.futureclient.client;
-
 public class EH {
     public static String f$E(String string) {
         int n;
@@ -296,49 +258,5 @@ lbl22:
         if (eH3.f$g != 1) {
             ((GuiButton)eH2.buttonList.get((int)0)).enabled = !eH2.f$j.getText().isEmpty();
         }
-    }
-}
-package net.futureclient.client;
-
-import net.futureclient.client.GA;
-import net.futureclient.client.eg;
-import net.futureclient.client.kH;
-
-public final class eh
-extends GA {
-    @Override
-    public String f$E() {
-        return "&e[username] [alias]";
-    }
-
-    @Override
-    public String f$E(String[] stringArray) {
-        if (stringArray.length == 2) {
-            String string = stringArray[0];
-            String string2 = stringArray[1];
-            if (kH.f$E().f$E().f$E(string)) {
-                return "That user is already a friend.";
-            }
-            kH.f$E().f$E().f$a(new eg(string, string2));
-            return String.format("Added friend with alias %s.", string2);
-        }
-        if (stringArray.length == 1) {
-            String string = stringArray[0];
-            if (kH.f$E().f$E().f$E(string)) {
-                return "That user is already a friend.";
-            }
-            String string3 = string;
-            kH.f$E().f$E().f$a(new eg(string3, string3));
-            return String.format("Added friend with alias %s.", string);
-        }
-        return null;
-    }
-
-    public eh() {
-        eh eh2;
-        String[] stringArray = new String[2];
-        stringArray[0] = "Add";
-        stringArray[1] = "A";
-        super(stringArray);
     }
 }
