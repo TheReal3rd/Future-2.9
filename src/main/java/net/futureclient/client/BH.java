@@ -1,20 +1,5 @@
 package net.futureclient.client;
 
-import net.futureclient.client.mh;
-
-public class BH {
-    public int f$j;
-    public int f$i;
-    public int f$M;
-    public int f$g;
-    public final mh f$d;
-
-    public BH(mh mh2) {
-        0.f$d = mh2;
-    }
-}
-package net.futureclient.client;
-
 public class Bh {
     private long f$d;
     private long f$g;

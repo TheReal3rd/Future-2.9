@@ -77,9 +77,7 @@ public class FutureClient {
         this.startTime = System.nanoTime() / 1000000L;
         FutureLogger.getInstance().log(Level.INFO, "Initiated client startup.");
         INSTANCE = this;
-        kH kH3 = this;
-        kH2.f$g = new AI();
-        kH kH4 = this;
+        this.f$g = new AI();
         this.futureDir = new File(System.getProperty("user.home"), clientName);
         if (!this.futureDir.exists()) {
             Object[] objectArray = new Object[1];
@@ -112,18 +110,15 @@ public class FutureClient {
     }
 
     public AG f$E() {
-        kH kH2;
-        return kH2.f$C;
+        return this.f$C;
     }
 
     public CE f$E() {
-        kH kH2;
-        return kH2.f$B;
+        return this.f$B;
     }
 
     public xI f$E() {
-        kH kH2;
-        return kH2.f$K;
+        return this.f$K;
     }
 
     public ModuleManager getModuleManager() {
@@ -135,13 +130,15 @@ public class FutureClient {
     }
 
     public AI f$E() {
-        kH kH2;
-        return kH2.f$g;
+        return this.f$g;
     }
 
     public Ah f$E() {
-        kH kH2;
-        return kH2.f$j;
+        return this.f$j;
+    }
+
+    public static FutureClient getINSTANCE() {
+        return INSTANCE;
     }
 
     public void setClientName(String string) {

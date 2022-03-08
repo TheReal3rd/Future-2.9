@@ -29,7 +29,7 @@ public class ModuleBase implements IModule {
     private String name;// OG f$K
     public CategoryEnum category;//OG f$i
     private static final Gson gson = new GsonBuilder().setPrettyPrinting().create(); // OG f$I
-    private String name1;// OG f$j
+    private String name1;// OG f$j Prob the Arraylist text e.g: KillAura[Stealth]
 
     public ModuleBase(String name, String ... searchTerms) {
         this.settings = new ArrayList<>();

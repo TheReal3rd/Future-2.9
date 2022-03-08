@@ -327,20 +327,14 @@ public class Pg {
 
     public static String f$E() {
         switch (f$M.getRenderViewEntity() == null ? Pg.f$M.player.func_174811_aO() : f$M.getRenderViewEntity().getHorizontalFacing()) {
-            case NORTH: {
-                while (false) {
-                }
+            case NORTH:
                 return "-Z";
-            }
-            case SOUTH: {
+            case SOUTH:
                 return "+Z";
-            }
-            case EAST: {
+            case EAST:
                 return "+X";
-            }
-            case WEST: {
+            case WEST:
                 return "-X";
-            }
         }
         return "";
     }

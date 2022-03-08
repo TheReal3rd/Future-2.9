@@ -198,30 +198,6 @@ extends Ba {
 }
 package net.futureclient.client;
 
-import net.futureclient.client.Ba;
-import net.futureclient.client.oF;
-
-public class if
-extends oF {
-    private Ba f$d;
-
-    public if(Ba ba) {
-        0.f$d = ba;
-    }
-
-    public Ba f$E() {
-        if if_;
-        return if_.f$d;
-    }
-
-    @Override
-    public void f$E() {
-        if if_;
-        if_.f$d.f$E();
-    }
-}
-package net.futureclient.client;
-
 import net.futureclient.client.RF;
 
 public class iF

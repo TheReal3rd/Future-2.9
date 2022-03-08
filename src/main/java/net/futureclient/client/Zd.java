@@ -1,33 +1,5 @@
 package net.futureclient.client;
 
-import net.futureclient.client.RF;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.ScaledResolution;
-
-public class Zd
-extends RF {
-    public int f$i;
-    public int f$j;
-    public int f$M;
-    public int f$g;
-    public int f$d;
-
-    public ScaledResolution f$E() {
-        return new ScaledResolution(Minecraft.getMinecraft());
-    }
-
-    public Zd() {
-        Zd zd;
-        Zd zd2 = zd;
-        Zd zd3 = zd;
-        zd3.f$i = 2;
-        zd3.f$M = 2;
-        zd2.f$g = -7;
-        zd2.f$d = 8;
-    }
-}
-package net.futureclient.client;
-
 import net.futureclient.client.Ha;
 import net.futureclient.client.Ie;
 import net.futureclient.client.ye;

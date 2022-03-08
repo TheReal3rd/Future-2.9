@@ -1,11 +1,5 @@
 package net.futureclient.client.deof.modules.combat.aura;
 
-import net.futureclient.client.B;
-import net.futureclient.client.Eg;
-import net.futureclient.client.KD;
-import net.futureclient.client.Ze;
-import net.minecraft.item.ItemFood;
-
 public class FE_Aura_Listener {
 }
 /*

@@ -1,6 +1,6 @@
 package net.futureclient.client.deof.unknown;
 
-public interface kB_F_Unknown {
+public interface F_Unknown {
     public String getString();//OG f$E
 }
 /*

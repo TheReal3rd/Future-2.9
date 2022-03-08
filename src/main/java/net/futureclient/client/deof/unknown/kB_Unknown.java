@@ -1,7 +1,7 @@
 package net.futureclient.client.deof.unknown;
 
 //TODO figure out whether this is correct.
-public abstract class kB_Unknown implements kB_F_Unknown {
+public abstract class kB_Unknown implements F_Unknown {
     private String string;//OG f$d
 
     public kB_Unknown(String string) {

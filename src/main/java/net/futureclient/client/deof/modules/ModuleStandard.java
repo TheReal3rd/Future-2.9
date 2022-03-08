@@ -4,6 +4,8 @@ import net.futureclient.client.Ha;
 import net.futureclient.client.deof.event.Listener;
 import net.futureclient.client.deof.unknown.HF_Unknown_Listener;
 import net.futureclient.client.deof.unknown.fE_Unknown_Listener;
+import net.futureclient.client.deof.unknown.if_Unknown;
+import net.futureclient.client.deof.unknown.ig_Unknown;
 import net.futureclient.client.deof.utils.enums.CategoryEnum;
 import net.futureclient.client.deof.utils.other.FutureLogger;
 
@@ -21,11 +23,11 @@ public class ModuleStandard extends ModuleBase implements IModuleStandard {
     private int colour;//OG f$M
     private List<Listener<?>> listenerList;//Listener list //OG f$K
 
-    public void f$a(boolean bl) {
+    public void setVisibility(boolean bl) {
         this.visibility = bl;
     }
 
-    public boolean f$a() {
+    public boolean isVisibility() {
         return this.visibility;
     }
 
@@ -52,21 +54,21 @@ public class ModuleStandard extends ModuleBase implements IModuleStandard {
         if (name.equalsIgnoreCase("ClickGui")) {
             Object[] objectArray = new Object[1];
             objectArray[0] = this.getTerms()[0].toLowerCase().replace(" ", "");
-            kH.f$E().f$E().f$E(new ig(String.format("%sToggle", objectArray), new if(0), 54));
+            kH.f$E().f$E().f$E(new ig_Unknown(String.format("%sToggle", objectArray), new if_Unknown(this), 54));
             return;
         }
         Object[] objectArray = new Object[1];
         objectArray[0] = this.getTerms()[0].toLowerCase().replace(" ", "");
-        kH.f$E().f$E().f$E(new ig(String.format("%sToggle", objectArray), new if(0), 0));
+        kH.f$E().f$E().f$E(new ig_Unknown(String.format("%sToggle", objectArray), new if_Unknown(this), 0));
     }
 
     public void subListeners() {
-        this.listenerList.forEach(ha -> kH.f$E().f$E().f$a((Ha)ha));
+        this.listenerList.forEach(ha -> kH.f$E().f$E().f$a((Listener)ha));
         if (this.getClass().isAnnotationPresent(AModule.class)) {//This annotation is probably a plugin system within future? possible evidence: https://github.com/nerdsinspace/nocom-chatschizophreniagaslight/blob/master/src/main/java/com/nhackindustries/ChatSchizophreniaGaslightPlugin.java
             AModule q = this.getClass().getAnnotation(AModule.class);
             FutureLogger.getInstance().log(String.format("&cNOTE: &7%s", q.f$E()));
         }
-        kH.f$E().f$E().f$a(ba.f$g);
+        kH.f$E().f$E().f$a(this.f$g);
     }
 
     public void addListeners(Listener<?> ... haArray) {
@@ -83,7 +85,7 @@ public class ModuleStandard extends ModuleBase implements IModuleStandard {
     }
 
     public void unSubListeners() {
-        this.listenerList.forEach(ha -> kH.f$E().f$E().f$E((Ha)ha));
+        this.listenerList.forEach(ha -> kH.f$E().f$E().f$E((Listener)ha));
         kH.f$E().f$E().f$a(this.f$d);
     }
 

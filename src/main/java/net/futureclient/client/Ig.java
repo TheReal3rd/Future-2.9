@@ -164,44 +164,6 @@ extends Ba {
 }
 package net.futureclient.client;
 
-import net.futureclient.client.F;
-import net.futureclient.client.oF;
-
-public class ig
-implements F {
-    private oF f$g;
-    private String f$M;
-    private int f$d;
-
-    public oF f$E() {
-        ig ig2;
-        return ig2.f$g;
-    }
-
-    public void f$E(int n) {
-        0.f$d = n;
-    }
-
-    @Override
-    public String f$E() {
-        ig ig2;
-        return ig2.f$M;
-    }
-
-    public int f$E() {
-        ig ig2;
-        return ig2.f$d;
-    }
-
-    public ig(String string, oF oF2, int n) {
-        ig ig2 = 0;
-        0.f$M = string;
-        ig2.f$g = oF2;
-        ig2.f$d = n;
-    }
-}
-package net.futureclient.client;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
