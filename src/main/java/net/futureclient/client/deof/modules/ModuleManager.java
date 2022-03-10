@@ -1,17 +1,21 @@
 package net.futureclient.client.deof.modules;
 
+import net.futureclient.client.deof.FutureClient;
+
 import java.util.Collection;
+import java.util.Comparator;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class ModuleManager {
     private Map<Class<? extends ModuleBase>, ModuleBase> moduleList = new LinkedHashMap<Class<? extends ModuleBase>, ModuleBase>();//OG ma class / f$d
 
     public ModuleManager() {
         //TODO add module reg
-        hf2.f$d = hf2.f$d.entrySet().stream().sorted(Comparator.comparing(entry -> ((ma)entry.getValue()).f$E())).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (ma2, ma3) -> ma2, LinkedHashMap::new));
-        kH.f$E().f$E().f$a(new cF(hf));
-        new gE(hf, "module_configurations.json");
+        this.moduleList = this.moduleList.entrySet().stream().sorted(Comparator.comparing(entry -> ((ModuleBase)entry.getValue()).getName())).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (ma2, ma3) -> ma2, LinkedHashMap::new));
+        FutureClient.getINSTANCE().getEventManager().subscribe(new Keybind_Listener(this));
+        new gE(this, "module_configurations.json");//TODO work on this but class has alot of broken code.
     }
 
     public final Collection<ModuleBase> getModuleList() {
@@ -22,8 +26,25 @@ public class ModuleManager {
         this.moduleList.put(module.getClass(), module);
     }
 
-    //TODO finish the other methods.
+    public final ModuleBase getModule(Class<? extends ModuleBase> clazz) {
+        return this.moduleList.get(clazz);
+    }
 
+    public ModuleBase getModule(String string) {
+        for (ModuleBase ma2 : this.moduleList.values()) {
+            int n2;
+            String[] stringArray = ma2.getTerms();
+            int n3 = stringArray.length;
+            int n4 = n2 = 0;
+            while (n4 < n3) {
+                if (stringArray[n2].equalsIgnoreCase(string)) {
+                    return ma2;
+                }
+                n4 = ++n2;
+            }
+        }
+        return null;
+    }
 }
 /*
 public class Hf {

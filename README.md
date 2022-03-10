@@ -1,6 +1,14 @@
 # Future 2.9
 Future that is free and open source. How software should be.
 
+#Check list:
+1. Identify All the classes / Organize them.
+2. Make the Client Build with only required modules & components working.
+3. Fix Bugs.
+4. Make all modules working.
+5. Fix Bugs.
+6. Done.
+
 #TODO
 1. Modules Semi Complete
    1. Module Manager Half Done
@@ -70,6 +78,12 @@ This one isn't de-obf its fake / joke.
 | Colours       | wD            | Nah           | Colours is a modules that holds colour settings.   |
 | ColourUtils   | vH            | Nah           | Colour Utils.   |
 | AE_TimeTask   | AE            | Nah           | Timed Task that for HUD module.   |
+| InputEvent    | kE            | Nah           | Input event for mouse and keyboard. |
+| Keybind_Listener| cF          | Nah           | Keybind listener for Modulemanager.   |
+| MacroManager  | lf            | Nah           | Manager for macros.   |
+| MacroObject   | lg            | Nah           | MacroObject holds data for Macros.   |
+| Content   | Content   | Nah           | Content   |
+| Content   | Content   | Nah           | Content   |
 | Content   | Content   | Nah           | Content   |
 | Content   | Content   | Nah           | Content   |
 | Content   | Content   | Nah           | Content   |

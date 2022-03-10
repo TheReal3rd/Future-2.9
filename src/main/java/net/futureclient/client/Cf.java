@@ -43,8 +43,7 @@ import net.futureclient.client.Hf;
 import net.futureclient.client.kE;
 import net.futureclient.client.kH;
 
-public class cF
-extends Ha<kE> {
+public class cF extends Ha<kE> {
     public final Hf f$d;
 
     @Override

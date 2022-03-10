@@ -14,67 +14,67 @@ import java.awt.*;
 import java.util.Comparator;
 
 public class te_Listener extends Listener<ScaledResEvent> {
-    public final Hud f$d;
+    public final Hud hud;//OG f$d
 
     public te_Listener(Hud gF2) {
-        this.f$d = gF2;
+        this.hud = gF2;
     }
 
     @Override
     public void invoke(ScaledResEvent zd) {
-        if (this.f$d.getMinecraft().gameSettings.showDebugInfo) return;
+        if (this.hud.getMinecraft().gameSettings.showDebugInfo) return;
 
-        zd.f$g = -(this.f$d.customFont.getValue() ? this.f$d.fontSetting.f$E() : Hud.getMinecraft1().fontRenderer.FONT_HEIGHT) + 2;
-        zd.f$g += Hud.f$e(this.f$d);
-        zd.f$d = (this.f$d.customFont.getValue() ? this.f$d.fontSetting.f$E() : Hud.getMinecraft1().fontRenderer.FONT_HEIGHT) - 1;
-        if (this.f$d.potionEffects.getValue()) {
-            Hud.getMinecraft1().player.getActivePotionEffects().stream().sorted(((TD)((Object)Hud.f$E(this.f$d).f$E())).equals((Object)TD.f$M) ? Comparator.comparing(PotionEffect::getEffectName).reversed() : Comparator.comparing(PotionEffect::getEffectName)).forEach(object -> {
+        zd.f$g = -(this.hud.customFont.getValue() ? this.hud.fontSetting.f$E() : Hud.getMinecraft1().fontRenderer.FONT_HEIGHT) + 2;
+        zd.f$g += Hud.f$e(this.hud);
+        zd.f$d = (this.hud.customFont.getValue() ? this.hud.fontSetting.f$E() : Hud.getMinecraft1().fontRenderer.FONT_HEIGHT) - 1;
+        if (this.hud.potionEffects.getValue()) {
+            Hud.getMinecraft1().player.getActivePotionEffects().stream().sorted(((TD)((Object)Hud.f$E(this.hud).f$E())).equals((Object)TD.f$M) ? Comparator.comparing(PotionEffect::getEffectName).reversed() : Comparator.comparing(PotionEffect::getEffectName)).forEach(object -> {
                 Potion potion = object.getPotion();
                 String object1 = new StringBuilder().insert(0, I18n.translateToLocal((String)potion.getName())).append(object.getAmplifier() > 0 ? new StringBuilder().insert(0, " ").append(object.getAmplifier() + 1).toString() : "").append(" \u00a7F").append(Potion.getPotionDurationString((PotionEffect)object, (float)1.0f)).toString();
-                Hud.drawText(this.f$d, zd, object1, potion.getLiquidColor());
+                Hud.drawText(this.hud, zd, object1, potion.getLiquidColor());
             });
         }
-        if (this.f$d.serverBrand.getValue()) {
-            Hud.drawText(this.f$d, zd, Hud.getMinecraft1().getCurrentServerData() == null ? "Vanilla" : Hud.getMinecraft1().player.getServerBrand(), -5592406);
+        if (this.hud.serverBrand.getValue()) {
+            Hud.drawText(this.hud, zd, Hud.getMinecraft1().getCurrentServerData() == null ? "Vanilla" : Hud.getMinecraft1().player.getServerBrand(), -5592406);
         }
-        if (this.f$d.watermark.getValue()) {
-            Hud.drawWatermark(this.f$d, zd);
+        if (this.hud.watermark.getValue()) {
+            Hud.drawWatermark(this.hud, zd);
         }
-        if (this.f$d.arrayList.getValue()) {
-            Hud.drawArrayList(this.f$d, zd);
+        if (this.hud.arrayList.getValue()) {
+            Hud.drawArrayList(this.hud, zd);
         }
-        if (this.f$d.coords.getValue()) {
-            Hud.drawCoords(this.f$d, zd);
+        if (this.hud.coords.getValue()) {
+            Hud.drawCoords(this.hud, zd);
         }
-        if (this.f$d.armour.getValue()) {
-            Hud.drawArmourHud(this.f$d, zd);
+        if (this.hud.armour.getValue()) {
+            Hud.drawArmourHud(this.hud, zd);
         }
-        if (this.f$d.direction.getValue()) {
-            Hud.drawPlayerDirection(this.f$d, zd);
+        if (this.hud.direction.getValue()) {
+            Hud.drawPlayerDirection(this.hud, zd);
         }
-        if (this.f$d.speed.getValue()) {
-            Hud.drawText(this.f$d, zd, String.format("Speed \u00a7F%skm/h", (double)Math.round(Hud.f$E(this.f$d) * 100.0) / 100.0), -5592406);
+        if (this.hud.speed.getValue()) {
+            Hud.drawText(this.hud, zd, String.format("Speed \u00a7F%skm/h", (double)Math.round(Hud.f$E(this.hud) * 100.0) / 100.0), -5592406);
         }
-        if (this.f$d.durability.getValue() && Hud.getMinecraft1().player.inventory.getCurrentItem().isItemStackDamageable()) {
+        if (this.hud.durability.getValue() && Hud.getMinecraft1().player.inventory.getCurrentItem().isItemStackDamageable()) {
             int n = Hud.getMinecraft1().player.inventory.getCurrentItem().getMaxDamage();
             int n2 = Hud.getMinecraft1().player.inventory.getCurrentItem().getItemDamage();
             Color color = new ColourUtils((float)(n - n2) / (float)n * 120.0f, 100.0f, 50.0f, 1.0f).getColour();
-            Hud.drawText(this.f$d, zd, String.format("\u00a77Durability \u00a7r%s", n - n2), color.getRGB());
+            Hud.drawText(this.hud, zd, String.format("\u00a77Durability \u00a7r%s", n - n2), color.getRGB());
         }
-        if (this.f$d.ping.getValue() && !Hud.getMinecraft1().isSingleplayer() && Hud.getMinecraft1().getConnection().getPlayerInfo(Hud.getMinecraft1().player.getUniqueID()) != null) {
-            Hud.drawText(this.f$d, zd, String.format("Ping \u00a7F%sms", Hud.getMinecraft1().getConnection().getPlayerInfo(Hud.getMinecraft1().player.getUniqueID()).getResponseTime()), -5592406);
+        if (this.hud.ping.getValue() && !Hud.getMinecraft1().isSingleplayer() && Hud.getMinecraft1().getConnection().getPlayerInfo(Hud.getMinecraft1().player.getUniqueID()) != null) {
+            Hud.drawText(this.hud, zd, String.format("Ping \u00a7F%sms", Hud.getMinecraft1().getConnection().getPlayerInfo(Hud.getMinecraft1().player.getUniqueID()).getResponseTime()), -5592406);
         }
-        if (this.f$d.tps.getValue()) {
-            Hud.drawText(this.f$d, zd, String.format("TPS \u00a7F%s", (double)Math.round((double) FutureClient.getINSTANCE().getTpsCalc().getTPS() * 100.0) / 100.0), -5592406);//TODO add tps calc from MAIN.
+        if (this.hud.tps.getValue()) {
+            Hud.drawText(this.hud, zd, String.format("TPS \u00a7F%s", (double)Math.round((double) FutureClient.getINSTANCE().getTpsCalc().getTPS() * 100.0) / 100.0), -5592406);//TODO add tps calc from MAIN.
         }
-        if (this.f$d.fps.getValue()) {
+        if (this.hud.fps.getValue()) {
             Object[] objectArray = new Object[1];
             Hud.f$e();//Hmmmmm
             objectArray[0] = Minecraft.getDebugFPS();
-            Hud.drawText(this.f$d, zd, String.format("FPS \u00a7F%s", objectArray), -5592406);
+            Hud.drawText(this.hud, zd, String.format("FPS \u00a7F%s", objectArray), -5592406);
         }
-        if (this.f$d.lagNotify.getValue()) {
-            Hud.drawServerResonse(this.f$d, zd);
+        if (this.hud.lagNotify.getValue()) {
+            Hud.drawServerResonse(this.hud, zd);
         }
     }
 }

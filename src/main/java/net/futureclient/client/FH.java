@@ -80,9 +80,6 @@ public class fh {
         return fh2.f$d;
     }
 
-    /*
-     * WARNING - void declaration
-     */
     private Entity f$E(EntityPlayer entityPlayer, int n) {
         Object object;
         if (this.f$M.containsKey(entityPlayer) && (object = this.f$M.get(entityPlayer)).size() > 1) {

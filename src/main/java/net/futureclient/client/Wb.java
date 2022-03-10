@@ -1,24 +1,5 @@
 package net.futureclient.client;
 
-import net.futureclient.client.DA;
-import net.futureclient.client.Ha;
-import net.futureclient.client.xF;
-
-public class Wb
-extends Ha<xF> {
-    public final DA f$d;
-
-    public Wb(DA dA) {
-        0.f$d = dA;
-    }
-
-    @Override
-    public void f$E(xF xF2) {
-        xF2.f$E(0.f$d.f$i.f$E());
-    }
-}
-package net.futureclient.client;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -141,25 +122,4 @@ public class wB {
         catch (NoSuchFieldError noSuchFieldError) {}
     }
 }
-package net.futureclient.client;
 
-import net.futureclient.client.Ha;
-import net.futureclient.client.bg;
-import net.futureclient.client.pc;
-import net.futureclient.client.yA;
-
-public class wb
-extends Ha<bg> {
-    public final yA f$d;
-
-    @Override
-    public void f$E(bg bg2) {
-        if (((pc)((Object)0.f$d.f$d.f$E())).equals((Object)pc.f$g) && yA.f$E(0.f$d)) {
-            bg2.f$a(true);
-        }
-    }
-
-    public wb(yA yA2) {
-        0.f$d = yA2;
-    }
-}

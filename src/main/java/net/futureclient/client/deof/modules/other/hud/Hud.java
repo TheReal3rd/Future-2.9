@@ -32,7 +32,7 @@ import java.util.Map;
 
 public class Hud extends ModuleBase {
     public SettingsBase<Boolean> fps;//OG f$r
-    private Map<Ba, Integer> f$I;//OG f$I
+    private Map<ModuleStandard, Integer> f$I;//OG f$I
     private int f$C;//OG f$C
     private int f$B;//OG f$B
     private List<ModuleStandard> f$e;//OG f$e

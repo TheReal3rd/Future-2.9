@@ -1,27 +1,5 @@
 package net.futureclient.client;
 
-import net.futureclient.client.Ce;
-import net.futureclient.client.Ha;
-import net.futureclient.client.Hc;
-import net.futureclient.client.Pg;
-
-public class BC
-extends Ha<Ce> {
-    public final Hc f$d;
-
-    @Override
-    public void f$E(Ce ce) {
-        if ((Pg.f$E().isInWater() || Pg.f$E().isInLava()) && (Pg.f$E().motionY == 0.1 || Pg.f$E().motionY == 0.5)) {
-            ce.f$E(true);
-        }
-    }
-
-    public BC(Hc hc) {
-        0.f$d = hc;
-    }
-}
-package net.futureclient.client;
-
 import net.futureclient.client.hA;
 import net.futureclient.client.kF;
 
@@ -54,28 +32,6 @@ public class Bc {
             Bc.f$g[hA.f$M.ordinal()] = 3;
         }
         catch (NoSuchFieldError noSuchFieldError) {}
-    }
-}
-package net.futureclient.client;
-
-import net.futureclient.client.Ha;
-import net.futureclient.client.PD;
-import net.futureclient.client.rA;
-import net.minecraft.util.MovementInputFromOptions;
-
-public class bc
-extends Ha<PD> {
-    public final rA f$d;
-
-    @Override
-    public void f$E(PD pD) {
-        if (rA.f$f().player.movementInput.getClass() == MovementInputFromOptions.class) {
-            rA.f$L().player.movementInput = rA.f$E();
-        }
-    }
-
-    public bc(rA rA2) {
-        0.f$d = rA2;
     }
 }
 package net.futureclient.client;

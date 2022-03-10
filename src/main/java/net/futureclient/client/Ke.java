@@ -11,51 +11,6 @@ extends aE {
 }
 package net.futureclient.client;
 
-import net.futureclient.client.GE;
-import net.futureclient.client.Ha;
-import net.futureclient.client.ge;
-
-public class KE
-extends Ha<GE> {
-    public final ge f$d;
-
-    public KE(ge ge2) {
-        0.f$d = ge2;
-    }
-
-    @Override
-    public void f$E(GE gE) {
-        gE.f$E(true);
-    }
-}
-package net.futureclient.client;
-
-import net.futureclient.client.He;
-import net.futureclient.client.RF;
-import org.lwjgl.input.Keyboard;
-
-public class kE
-extends RF {
-    private He f$d;
-    private int f$g;
-
-    public kE(He he) {
-        0.f$g = Keyboard.getEventKey();
-        0.f$d = he;
-    }
-
-    public He f$E() {
-        kE kE2;
-        return kE2.f$d;
-    }
-
-    public int f$E() {
-        kE kE2;
-        return kE2.f$g;
-    }
-}
-package net.futureclient.client;
-
 public class ke {
     public ke() {
         ke ke2;

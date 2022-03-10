@@ -21,7 +21,7 @@ public class ModuleStandard extends ModuleBase implements IModuleStandard {
     private final HF_Unknown_Listener f$d = new HF_Unknown_Listener(this);//Another listener //OG f$d  //Unknown Event
     private boolean visibility;//OG f$i visibility
     private int colour;//OG f$M
-    private List<Listener<?>> listenerList;//Listener list //OG f$K
+    private final List<Listener<?>> listenerList;//Listener list //OG f$K
 
     public void setVisibility(boolean bl) {
         this.visibility = bl;

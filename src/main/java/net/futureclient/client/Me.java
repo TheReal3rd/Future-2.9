@@ -17,33 +17,7 @@ public class ME extends RF {
         ME mE;
     }
 }
-package net.futureclient.client;
 
-import net.futureclient.client.Ha;
-import net.futureclient.client.Ie;
-import net.futureclient.client.ve;
-import net.minecraft.network.play.client.CPacketPlayer;
-
-public class mE
-extends Ha<ve> {
-    public final Ie f$d;
-
-    public mE(Ie ie) {
-        0.f$d = ie;
-    }
-
-    @Override
-    public void f$E(ve ve2) {
-        if (ve2.f$E() instanceof CPacketPlayer) {
-            CPacketPlayer cPacketPlayer = (CPacketPlayer)ve2.f$E();
-            if (Ie.f$E(0.f$d).contains(cPacketPlayer)) {
-                Ie.f$E(0.f$d).remove(cPacketPlayer);
-                return;
-            }
-            ve2.f$E(true);
-        }
-    }
-}
 package net.futureclient.client;
 
 import java.util.UUID;

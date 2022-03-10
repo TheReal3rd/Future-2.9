@@ -1,54 +1,6 @@
 package net.futureclient.client;
 
 import net.futureclient.client.Ha;
-import net.futureclient.client.UF;
-import net.futureclient.client.ve;
-
-public class Xe
-extends Ha<ve> {
-    public final UF f$d;
-
-    public Xe(UF uF) {
-        0.f$d = uF;
-    }
-
-    @Override
-    public void f$E(ve ve2) {
-        boolean bl = (Boolean)UF.f$B(this.f$d).f$E();
-    }
-}
-package net.futureclient.client;
-
-import net.futureclient.client.Ha;
-import net.futureclient.client.lE;
-import net.futureclient.client.ve;
-import net.minecraft.entity.Entity;
-import net.minecraft.network.Packet;
-import net.minecraft.network.play.client.CPacketEntityAction;
-import net.minecraft.network.play.client.CPacketPlayerTryUseItemOnBlock;
-
-public class XE
-extends Ha<ve> {
-    public final lE f$d;
-
-    /*
-     * WARNING - void declaration
-     */
-    public XE(lE lE2) {
-        void 0;
-        0.f$d = 0;
-    }
-
-    @Override
-    public void f$E(ve ve2) {
-        if (!((Boolean)lE.f$E(0.f$d).f$E()).booleanValue() && ve2.f$E() instanceof CPacketPlayerTryUseItemOnBlock) {
-            lE.f$E().player.connection.sendPacket((Packet)new CPacketEntityAction((Entity)lE.f$a().player, CPacketEntityAction.Action.STOP_SNEAKING));
-        }
-    }
-}
-package net.futureclient.client;
-
-import net.futureclient.client.Ha;
 import net.futureclient.client.Ze;
 import net.futureclient.client.jf;
 import net.minecraft.item.ItemAir;

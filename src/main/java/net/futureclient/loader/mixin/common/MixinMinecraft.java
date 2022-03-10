@@ -9,6 +9,9 @@ import net.futureclient.client.OF;
 import net.futureclient.client.Vd;
 import net.futureclient.client.Wf;
 import net.futureclient.client.Y;
+import net.futureclient.client.deof.FutureClient;
+import net.futureclient.client.deof.event.events.InputEvent;
+import net.futureclient.client.deof.utils.enums.InputEnum;
 import net.futureclient.client.kE;
 import net.futureclient.client.kH;
 import net.futureclient.client.oH;
@@ -115,12 +118,12 @@ public abstract class MixinMinecraft implements Y {
 
     @Inject(method={"clickMouse"}, at={@At(value="HEAD")})
     private void f$K(CallbackInfo callbackInfo) {
-        kH.f$E().f$E().f$E(new kE(He.f$i));
+        FutureClient.getINSTANCE().getEventManager().invoke(new InputEvent(InputEnum.LEFTCLICK));
     }
 
     @Inject(method={"rightClickMouse"}, at={@At(value="HEAD")})
     private void f$B(CallbackInfo callbackInfo) {
-        kH.f$E().f$E().f$E(new kE(He.f$M));
+        FutureClient.getINSTANCE().getEventManager().invoke(new InputEvent(InputEnum.RIGHTCLICK));
     }
 
     @Inject(method={"runTick"}, at={@At(value="HEAD")})
@@ -132,15 +135,15 @@ public abstract class MixinMinecraft implements Y {
     private void f$a(CallbackInfo callbackInfo) {
         boolean bl = Keyboard.getEventKeyState();
         if (bl) {
-            kH.f$E().f$E().f$E(new kE(He.f$b));
+            FutureClient.getINSTANCE().getEventManager().invoke(new InputEvent(InputEnum.KEYDOWN));
         } else {
-            kH.f$E().f$E().f$E(new kE(He.f$j));
+            FutureClient.getINSTANCE().getEventManager().invoke(new InputEvent(InputEnum.KEYRELEASE));
         }
     }
 
     @Inject(method={"middleClickMouse"}, at={@At(value="HEAD")})
     private void f$E(CallbackInfo callbackInfo) {
-        kH.f$E().f$E().f$E(new kE(He.f$g));
+        FutureClient.getINSTANCE().getEventManager().invoke(new InputEvent(InputEnum.MIDDLECLICK));
     }
 
     @Redirect(method={"createDisplay"}, at=@At(value="INVOKE", remap=false, target="org/lwjgl/opengl/Display.create(Lorg/lwjgl/opengl/PixelFormat;)V"))

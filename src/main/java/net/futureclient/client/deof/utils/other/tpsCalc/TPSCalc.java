@@ -1,5 +1,6 @@
 package net.futureclient.client.deof.utils.other.tpsCalc;
 
+import net.futureclient.client.deof.FutureClient;
 import net.futureclient.client.deof.utils.other.DelayTimer;
 
 import java.util.ArrayDeque;
@@ -23,26 +24,7 @@ public class TPSCalc {
     public TPSCalc() {
         this.tpsResult = new ArrayDeque<Float>(20);
         this.timeDelay = new DelayTimer();
-        kH.f$E().f$E().f$a(new VG(rG));//Reg Listener
-    }
-
-    public static String f$E(String string) {
-        int n = string.length();
-        int n2 = n - 1;
-        char[] cArray = new char[n];
-        int n3 = 4 << 3 ^ (2 ^ 5);
-        int cfr_ignored_0 = (2 ^ 5) << 3 ^ 3;
-        int n4 = n2;
-        int n5 = 5 << 4 ^ (3 ^ 5) << 1;
-        while (n4 >= 0) {
-            int n6 = n2--;
-            cArray[n6] = (char)(string.charAt(n6) ^ n5);
-            if (n2 < 0) break;
-            int n7 = n2--;
-            cArray[n7] = (char)(string.charAt(n7) ^ n3);
-            n4 = n2;
-        }
-        return new String(cArray);
+        FutureClient.getINSTANCE().getEventManager().subscribe(new TPSCalcListener(this));
     }
 
     public static long getTime(TPSCalc rG) {

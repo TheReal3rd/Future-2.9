@@ -1,25 +1,6 @@
 package net.futureclient.client;
 
 import net.futureclient.client.Ha;
-import net.futureclient.client.pC;
-import net.futureclient.client.xd;
-
-public class NC
-extends Ha<xd> {
-    public final pC f$d;
-
-    @Override
-    public void f$E(xd xd2) {
-        xd2.f$E(true);
-    }
-
-    public NC(pC pC2) {
-        0.f$d = pC2;
-    }
-}
-package net.futureclient.client;
-
-import net.futureclient.client.Ha;
 import net.futureclient.client.He;
 import net.futureclient.client.kE;
 import net.futureclient.client.pd;
@@ -133,43 +114,4 @@ extends Ha<kE> {
         }
     }
 }
-package net.futureclient.client;
 
-import net.futureclient.client.Ha;
-import net.futureclient.client.OB;
-import net.futureclient.client.SF;
-
-public class nc
-extends Ha<SF> {
-    public final OB f$d;
-
-    @Override
-    public void f$E(SF sF) {
-        sF.f$E(true);
-    }
-
-    public nc(OB oB) {
-        0.f$d = oB;
-    }
-}
-package net.futureclient.client;
-
-import net.futureclient.client.DF;
-import net.futureclient.client.Ha;
-import net.futureclient.client.cC;
-
-public class nC
-extends Ha<DF> {
-    public final cC f$d;
-
-    public nC(cC cC2) {
-        0.f$d = cC2;
-    }
-
-    @Override
-    public void f$E(DF dF) {
-        if (0.f$d.f$K.f$E().booleanValue()) {
-            dF.f$E(true);
-        }
-    }
-}
