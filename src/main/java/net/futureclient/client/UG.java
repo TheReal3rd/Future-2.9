@@ -33,14 +33,3 @@ extends Ha<ME> {
         uG.f$d = yG;
     }
 }
-package net.futureclient.client;
-
-import com.google.gson.reflect.TypeToken;
-import java.util.Map;
-
-public final class ug
-extends TypeToken<Map<String, String>> {
-    public ug() {
-        ug ug2;
-    }
-}

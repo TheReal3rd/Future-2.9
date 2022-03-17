@@ -14,8 +14,7 @@ import java.util.ArrayList;
 import net.futureclient.client.QE;
 import net.futureclient.client.ig;
 
-public class CE
-extends QE<ig> {
+public class CE extends QE<ig> {
     @Override
     public void f$E(ig ig2) {
         super.f$a(ig2);

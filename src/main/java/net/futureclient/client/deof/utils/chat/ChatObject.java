@@ -1,21 +1,21 @@
-package net.futureclient.client.deof.unknown;
+package net.futureclient.client.deof.utils.chat;
 
 import net.minecraft.client.Minecraft;
 
-public class Jf_Unknown extends oF_Unknown {
-    private String f$d;
+public class ChatObject extends oF_Unknown {
+    private final String message;//OG f$d
 
-    public Jf_Unknown(String string) {
-        this.f$d = string;
+    public ChatObject(String string) {
+        this.message = string;
     }
 
     @Override
-    public void f$E() {
-        Minecraft.getMinecraft().player.sendChatMessage(this.f$d);
+    public void send() {
+        Minecraft.getMinecraft().player.sendChatMessage(this.message);
     }
 
-    public String f$E() {
-        return this.f$d;
+    public String getMessage() {
+        return this.message;
     }
 }
 /*

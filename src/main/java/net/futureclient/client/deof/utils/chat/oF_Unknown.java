@@ -1,7 +1,7 @@
-package net.futureclient.client.deof.unknown;
+package net.futureclient.client.deof.utils.chat;
 
 public abstract class oF_Unknown {
-    public abstract void f$E();
+    public abstract void send();
 }
 /*
 package net.futureclient.client;

@@ -1,6 +1,9 @@
 package net.futureclient.client.deof.unknown;
 
-public class ig_Unknown implements F_Unknown {//TODO figure out what this does.
+import net.futureclient.client.deof.utils.chat.oF_Unknown;
+import net.futureclient.client.deof.utils.file.IString;
+
+public class ig_Unknown implements IString {//TODO figure out what this does.
     private oF_Unknown f$g;
     private String f$M;
     private int f$d;

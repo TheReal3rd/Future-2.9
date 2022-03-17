@@ -26,8 +26,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.text.translation.I18n;
 
-public class Ai
-extends Ha<dF> {
+public class Ai extends Ha<dF> {
     public final AG f$d;
 
     /*

@@ -1,4 +1,4 @@
-package net.futureclient.client.deof.utils.other;
+package net.futureclient.client.deof.utils.logger;
 
 import net.futureclient.client.deof.FutureClient;
 import net.minecraft.client.Minecraft;

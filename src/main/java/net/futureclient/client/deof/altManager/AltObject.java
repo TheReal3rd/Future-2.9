@@ -1,3 +1,131 @@
+package net.futureclient.client.deof.altManager;
+
+import net.futureclient.client.deof.utils.enums.AltTypeEnum;
+import net.minecraft.util.Session;
+
+public class AltObject {
+    private String f$b;//OG f$b
+    private String username;//OG f$I
+    private AltTypeEnum altTypeEnum;//OG f$d
+    private String playerID;//OG f$j
+    private String usernameCrack;//OG f$K
+    private String f$g;//OG f$g
+    private String f$i;//OG f$i
+    private String token;//OG f$M
+
+    public AltObject(String string, String string2, String string3) {
+        this.altTypeEnum = AltTypeEnum.GENERATED;
+        this.username = string;
+        this.playerID = "";
+        this.f$i = string2;
+        this.token = string3;
+        this.usernameCrack = string;
+        this.f$b = "";
+        this.f$g = "";
+    }
+
+    public AltObject(String string, String string2, String string3, String string4, String string5) {
+        this.altTypeEnum = AltTypeEnum.PREMIUM2;
+        this.username = string;
+        this.playerID = string2;
+        this.f$i = "";
+        this.token = string3;
+        this.usernameCrack = string4;
+        this.f$b = string5;
+        this.f$g = "";
+    }
+
+    public AltObject(String string) {
+        this.altTypeEnum = AltTypeEnum.NONPREMIUM;
+        this.username = string;
+        this.playerID = "";
+        this.f$i = "";
+        this.token = "";
+        this.usernameCrack = string;
+        this.f$b = "";
+        this.f$g = "";
+    }
+
+    public AltObject(String string, String string2) {
+        this.altTypeEnum = AltTypeEnum.PREMIUM;
+        this.username = "";
+        this.playerID = "";
+        this.f$i = "";
+        this.token = "";
+        this.usernameCrack = string;
+        this.f$b = string2;
+        this.f$g = "";
+    }
+
+    public void f$E(Session session) {
+        this.playerID = session.getPlayerID();
+        this.token = session.getToken();
+    }
+
+    public void f$E(String string) {
+        this.f$g = string;
+    }
+
+    public String f$K() {
+        return this.f$b;
+    }
+
+    public AltTypeEnum getAltType() {
+        return this.altTypeEnum;
+    }
+
+    public void f$E(AltTypeEnum jG2) {
+        this.altTypeEnum = jG2;
+    }
+
+    public void f$e(String string) {
+        this.f$i = string;
+    }
+
+    public String getPlayerID() {
+        return this.playerID;
+    }
+
+    public String getUsernameCrack() {
+        return this.usernameCrack;
+    }
+
+    public void setUsername(String string) {
+        this.username = string;
+    }
+
+    public void setToken(String string) {
+        this.token = string;
+    }
+
+    public String f$e() {
+        return this.f$i;
+    }
+
+    public void setPlayerID(String string) {
+        this.playerID = string;
+    }
+
+    public String getToken() {
+        return this.token;
+    }
+
+    public String f$E() {
+        return this.f$g;
+    }
+
+    public String getUsername() {
+        return this.username;
+    }
+
+    public Session getSession() {
+        if (this.username.isEmpty()) {
+            return new Session(this.usernameCrack, this.playerID, this.token, "mojang");
+        }
+        return new Session(this.username, this.playerID, this.token, "mojang");
+    }
+}
+/*
 package net.futureclient.client;
 
 import net.futureclient.client.jG;
@@ -168,3 +296,4 @@ public class ph {
         ph2.f$g = "";
     }
 }
+ */

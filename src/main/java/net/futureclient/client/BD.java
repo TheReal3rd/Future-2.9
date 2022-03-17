@@ -1,31 +1,5 @@
 package net.futureclient.client;
 
-import net.futureclient.client.Ha;
-import net.futureclient.client.He;
-import net.futureclient.client.kE;
-import net.futureclient.client.lf;
-
-public class BD
-extends Ha<kE> {
-    public final lf f$d;
-
-    @Override
-    public void f$E(kE kE2) {
-        if (kE2.f$E() == He.f$b) {
-            0.f$d.f$E().forEach(lg2 -> {
-                if (lg2.f$E() != 0 && lg2.f$E() == kE2.f$E()) {
-                    lg2.f$E();
-                }
-            });
-        }
-    }
-
-    public BD(lf lf2) {
-        0.f$d = lf2;
-    }
-}
-package net.futureclient.client;
-
 public enum Bd {
     f$i,
     f$M,

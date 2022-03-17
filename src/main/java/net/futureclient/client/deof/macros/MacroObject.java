@@ -1,36 +1,33 @@
 package net.futureclient.client.deof.macros;
 
+import net.futureclient.client.deof.utils.chat.ChatObject;
+import net.minecraft.client.Minecraft;
+
 public class MacroObject {
-    private String f$d;
-    private Jf f$g;
-    private int f$M;
+    private final String string;//OG f$d
+    private final ChatObject macroObject;//OG f$g
+    private final int keyID;//OG f$M
 
-    public lg(int n, String string) {
-        lg lg2 = 0;
-        lg2.f$M = n;
-        lg2.f$d = string;
-        lg lg3 = 0;
-        lg2.f$g = new Jf(string);
+    public MacroObject(int n, String string) {
+        this.keyID = n;
+        this.string = string;
+        this.macroObject = new ChatObject(string);
     }
 
-    public int f$E() {
-        lg lg2;
-        return lg2.f$M;
+    public int getKeyID() {
+        return this.keyID;
     }
 
-    public Jf f$E() {
-        lg lg2;
-        return lg2.f$g;
+    public ChatObject getMacroObject() {
+        return this.macroObject;
     }
 
-    public String f$E() {
-        lg lg2;
-        return lg2.f$d;
+    public String getMacro() {
+        return this.string;
     }
 
-    public void f$E() {
-        lg lg2;
-        Minecraft.getMinecraft().player.sendChatMessage(lg2.f$g.f$E());
+    public void send() {
+        Minecraft.getMinecraft().player.sendChatMessage(this.macroObject.getMessage());
     }
 }
 /*

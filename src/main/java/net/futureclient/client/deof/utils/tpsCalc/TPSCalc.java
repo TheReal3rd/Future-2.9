@@ -1,7 +1,7 @@
-package net.futureclient.client.deof.utils.other.tpsCalc;
+package net.futureclient.client.deof.utils.tpsCalc;
 
 import net.futureclient.client.deof.FutureClient;
-import net.futureclient.client.deof.utils.other.DelayTimer;
+import net.futureclient.client.deof.utils.client.DelayTimer;
 
 import java.util.ArrayDeque;
 

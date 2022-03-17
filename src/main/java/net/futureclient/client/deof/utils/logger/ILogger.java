@@ -1,4 +1,4 @@
-package net.futureclient.client.deof.utils.other;
+package net.futureclient.client.deof.utils.logger;
 
 import net.minecraft.util.text.ITextComponent;
 

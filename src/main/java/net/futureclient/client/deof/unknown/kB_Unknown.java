@@ -1,7 +1,9 @@
 package net.futureclient.client.deof.unknown;
 
+import net.futureclient.client.deof.utils.file.IString;
+
 //TODO figure out whether this is correct.
-public abstract class kB_Unknown implements F_Unknown {
+public abstract class kB_Unknown implements IString {
     private String string;//OG f$d
 
     public kB_Unknown(String string) {

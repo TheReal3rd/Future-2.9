@@ -16,30 +16,6 @@ public enum JF {
 }
 package net.futureclient.client;
 
-import net.futureclient.client.oF;
-import net.minecraft.client.Minecraft;
-
-public class Jf
-extends oF {
-    private String f$d;
-
-    @Override
-    public void f$E() {
-        Jf jf;
-        Minecraft.getMinecraft().player.sendChatMessage(jf.f$d);
-    }
-
-    public String f$E() {
-        Jf jf;
-        return jf.f$d;
-    }
-
-    public Jf(String string) {
-        0.f$d = string;
-    }
-}
-package net.futureclient.client;
-
 import net.futureclient.client.IE;
 import net.minecraft.network.Packet;
 

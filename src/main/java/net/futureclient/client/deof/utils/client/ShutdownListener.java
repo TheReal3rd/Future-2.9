@@ -1,9 +1,9 @@
-package net.futureclient.client.deof.utils.other.clientListeners;
+package net.futureclient.client.deof.utils.client;
 
 import net.futureclient.client.deof.FutureClient;
 import net.futureclient.client.deof.event.Listener;
 import net.futureclient.client.deof.event.events.ShutdownEvent;
-import net.futureclient.client.deof.utils.other.FutureLogger;
+import net.futureclient.client.deof.utils.logger.FutureLogger;
 import org.apache.logging.log4j.Level;
 
 

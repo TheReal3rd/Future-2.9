@@ -1,4 +1,4 @@
-package net.futureclient.client.deof.utils.other.tpsCalc;
+package net.futureclient.client.deof.utils.tpsCalc;
 
 import net.futureclient.client.deof.event.Listener;
 import net.futureclient.client.deof.event.events.PacketEvent;

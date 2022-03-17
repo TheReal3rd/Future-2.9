@@ -1,38 +1,5 @@
 package net.futureclient.client;
 
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import net.futureclient.client.lH;
-
-public class Aj
-implements JsonDeserializer<Map<String, String>> {
-    public Map<String, String> f$E(JsonElement jsonElement, Type object, JsonDeserializationContext object2) {
-        object = new HashMap();
-        object2 = jsonElement.getAsJsonArray().iterator();
-        while (object2.hasNext()) {
-            Iterator iterator = ((JsonElement)object2.next()).getAsJsonObject().entrySet().iterator();
-            if (!iterator.hasNext()) continue;
-            iterator = (Map.Entry)iterator.next();
-            object.put(iterator.getKey(), ((JsonElement)iterator.getValue()).getAsString());
-        }
-        return object;
-    }
-
-    public Aj(lH lH2) {
-        0();
-    }
-
-    private Aj() {
-        Aj aj;
-    }
-}
-package net.futureclient.client;
-
 import java.awt.Color;
 import java.awt.Point;
 import net.futureclient.client.Uh;

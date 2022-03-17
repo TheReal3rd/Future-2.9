@@ -1,19 +1,19 @@
 package net.futureclient.client.deof;
 
 import java.io.File;
-import net.futureclient.client.AG;
 import net.futureclient.client.AI;
 import net.futureclient.client.Ah;
 import net.futureclient.client.CE;
 import net.futureclient.client.Vh;
 import net.futureclient.client.We;
+import net.futureclient.client.deof.commands.manager.CommandManager;
 import net.futureclient.client.deof.event.EventManager;
+import net.futureclient.client.deof.macros.MacroManager;
 import net.futureclient.client.deof.modules.ModuleManager;
-import net.futureclient.client.deof.utils.other.clientListeners.ShutdownListener;
-import net.futureclient.client.deof.utils.other.FutureLogger;
-import net.futureclient.client.deof.utils.other.tpsCalc.TPSCalc;
+import net.futureclient.client.deof.utils.client.ShutdownListener;
+import net.futureclient.client.deof.utils.logger.FutureLogger;
+import net.futureclient.client.deof.utils.tpsCalc.TPSCalc;
 import net.futureclient.client.fh;
-import net.futureclient.client.lf;
 import net.futureclient.client.mI;
 import net.futureclient.client.mg;
 import net.futureclient.client.xI;
@@ -22,7 +22,7 @@ import org.apache.logging.log4j.Level;
 public class FutureClient {
     private final CE f$B; // Unknown OG CE f$B
     private final EventManager eventManager; // Seems to be the event system OG IH f$c
-    private final lf f$a; // Something with Macros Configs OG lf f$a
+    private final MacroManager macroManager; // Something with Macros Configs OG lf f$a
     private final AI f$g; // Unknown Possibly Window Title. OG AI f$g
     private File futureDir; // User home Directory. OG f$L
     private static FutureClient INSTANCE;// OG "kH f$H;" Client INSTANCE
@@ -31,7 +31,7 @@ public class FutureClient {
     public static String clientName = "Future"; // OG f$m;
     private Vh f$d; // System Tray OG Vh f$d
     private final mg f$e;// Friends OG mg f$e
-    private final AG f$C;// Commands OG AG f$C
+    private final CommandManager commmandManager;// Commands OG AG f$C
     private final Ah f$j;// Unknown Really fucked tho. OG Ah f$j
     public long startTime; // OG f$l
     private final We f$I;// Unknown OG We f$I
@@ -68,8 +68,8 @@ public class FutureClient {
         this.f$d = vh;
     }
 
-    public lf f$E() {
-        return this.f$a;
+    public MacroManager getMacroManager() {
+        return this.macroManager;
     }
 
     public FutureClient() {
@@ -91,9 +91,9 @@ public class FutureClient {
         this.eventManager = new EventManager();
         this.f$I = new We();
         this.f$B = new CE();
-        this.f$C = new AG();
+        this.commmandManager = new CommandManager();
         this.moduleManager = new ModuleManager();
-        this.f$a = new lf();
+        this.macroManager = new MacroManager();
         this.f$e = new mg();
         this.f$K = new xI();
         this.tpsCalc = new TPSCalc();
@@ -109,8 +109,8 @@ public class FutureClient {
         return this.tpsCalc;
     }
 
-    public AG f$E() {
-        return this.f$C;
+    public CommandManager getCommmandManager() {
+        return this.commmandManager;
     }
 
     public CE f$E() {

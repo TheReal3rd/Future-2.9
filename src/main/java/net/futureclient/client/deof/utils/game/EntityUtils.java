@@ -1,4 +1,4 @@
-package net.futureclient.client.deof.utils;
+package net.futureclient.client.deof.utils.game;
 
 import net.futureclient.client.Pg;
 import net.minecraft.block.material.Material;

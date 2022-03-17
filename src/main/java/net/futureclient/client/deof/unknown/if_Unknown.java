@@ -1,6 +1,7 @@
 package net.futureclient.client.deof.unknown;
 
 import net.futureclient.client.deof.modules.ModuleStandard;
+import net.futureclient.client.deof.utils.chat.oF_Unknown;
 
 public class if_Unknown extends oF_Unknown {
     private ModuleStandard moduleS;//OG f$d

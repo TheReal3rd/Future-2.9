@@ -3,7 +3,9 @@ package net.futureclient.client.deof.commands.manager;
 import net.futureclient.client.*;
 import net.futureclient.client.deof.commands.commands.BreedCMD;
 import net.futureclient.client.deof.commands.commands.ConnectCMD;
-import net.futureclient.client.deof.utils.ObjectList;
+import net.futureclient.client.deof.commands.commands.DamageCMD;
+import net.futureclient.client.deof.commands.commands.DisconnectCMD;
+import net.futureclient.client.deof.utils.client.ObjectList;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -30,10 +32,12 @@ public class CommandManager extends ObjectList<CommandBase> {
         //Reg START
         this.add(new BreedCMD());
         this.add(new ConnectCMD());
+        this.add(new DamageCMD());
+        this.add(new DisconnectCMD());
         //Reg END
         this.list.sort(Comparator.comparing(gA -> gA.getArgs()[0]));
-        kH.f$E().f$E().f$a(new Ai(aG));
-        new Vi(aG, "command_prefix.txt");
+        kH.f$E().f$E().f$a(new Ai(this));//TODO work on this event.
+        new CommandFile(this, "command_prefix.txt");
     }
 
     public void setPrefix(String string) {

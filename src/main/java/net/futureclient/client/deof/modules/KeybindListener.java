@@ -5,10 +5,10 @@ import net.futureclient.client.deof.event.Listener;
 import net.futureclient.client.deof.event.events.InputEvent;
 import net.futureclient.client.deof.utils.enums.InputEnum;
 
-public class Keybind_Listener extends Listener<InputEvent> {
+public class KeybindListener extends Listener<InputEvent> {
     public final FutureClient f$d;
 
-    public Keybind_Listener(FutureClient hf) {
+    public KeybindListener(FutureClient hf) {
         this.f$d = hf;
     }
 

@@ -1,38 +1,36 @@
 package net.futureclient.client.deof.macros;
 
-import net.futureclient.client.deof.utils.ObjectList;
+import net.futureclient.client.deof.FutureClient;
+import net.futureclient.client.deof.utils.client.ObjectList;
 
 import java.util.ArrayList;
 
 public class MacroManager extends ObjectList<MacroObject> {
 
     public MacroManager() {
-        this.list = new ArrayList();
-        kH.f$E().f$E().f$a(new BD(lf2));
-        new nf(lf2, "macros.txt");
+        this.list = new ArrayList<MacroObject>();
+        FutureClient.getINSTANCE().getEventManager().subscribe(new MacroListener(this));
+        new MacroFile(this, "macros.txt");
     }
 
-    @Override
-    public boolean f$E(int n) {
+    public boolean contains(int n) {
         for (MacroObject lg2 : this.list) {
-            if (n != lg2.f$E()) continue;
+            if (n != lg2.getKeyID()) continue;
             return true;
         }
         return false;
     }
 
-    @Override
-    public void f$E(int n2) {
-        MacroObject n2 = this.f$E(n2);
-        if (n2 != null) {
-            this.list.remove(n2);
+    public void remove(int n2) {
+        MacroObject object = this.get(n2);
+        if (object != null) {
+            this.list.remove(object);
         }
     }
 
-    @Override
-    public MacroObject f$E(int n) {
+    public MacroObject get(int n) {
         for (MacroObject lg2 : this.list) {
-            if (n != lg2.f$E()) continue;
+            if (n != lg2.getKeyID()) continue;
             return lg2;
         }
         return null;

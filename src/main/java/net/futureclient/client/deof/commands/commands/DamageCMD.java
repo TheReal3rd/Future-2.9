@@ -1,7 +1,7 @@
 package net.futureclient.client.deof.commands.commands;
 
 import net.futureclient.client.deof.commands.manager.CommandBase;
-import net.futureclient.client.deof.utils.EntityUtils;
+import net.futureclient.client.deof.utils.game.EntityUtils;
 
 public class DamageCMD extends CommandBase {
 

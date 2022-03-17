@@ -1,13 +1,12 @@
 package net.futureclient.client.deof.modules;
 
-import net.futureclient.client.Ha;
 import net.futureclient.client.deof.event.Listener;
 import net.futureclient.client.deof.unknown.HF_Unknown_Listener;
 import net.futureclient.client.deof.unknown.fE_Unknown_Listener;
 import net.futureclient.client.deof.unknown.if_Unknown;
 import net.futureclient.client.deof.unknown.ig_Unknown;
 import net.futureclient.client.deof.utils.enums.CategoryEnum;
-import net.futureclient.client.deof.utils.other.FutureLogger;
+import net.futureclient.client.deof.utils.logger.FutureLogger;
 
 import java.util.ArrayList;
 import java.util.Collections;

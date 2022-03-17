@@ -1,6 +1,6 @@
-package net.futureclient.client.deof.unknown;
+package net.futureclient.client.deof.utils.file;
 
-public interface F_Unknown {
+public interface IString {
     public String getString();//OG f$E
 }
 /*

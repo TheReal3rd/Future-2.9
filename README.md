@@ -39,12 +39,12 @@ This one isn't de-obf its fake / joke.
 | Renamed Class | Obfuscated 1  | Semi Deof 1   | Description   |
 | ------------- | ------------- | ------------- | -------------------------- |
 | FutureClient  | kH            | Nah           | Main class that holds managers.  |
-| ModuleStandard | Ba           | Nah           | Base class for Modules.  |
+| ModuleStandard| Ba            | Nah           | Base class for Modules.  |
 | ModuleManager | Hf            | Nah           | Class that Manages Modules.  |
 | ModuleBase    | ma            | Nah           | Base class for Modules.  |
 | Listener      | Ha            | Nah           | Where Events are invoked.  |
 | PacketEvent   | Ye            | Nah           | PacketEvent.   |
-| F_Unknown     | F             | Nah           | Unknown Interface with single method used in ig_Unknown.   |
+| IString       | F             | Nah           | Unknown Interface with single method used in ig_Unknown.   |
 | CommandBase   | GA            | Nah           | Base Class for Commands.  |
 | CommandManager| AG            | Nah           | Command Manager.  |
 | FutureLogger  | La            | Nah           | Logging Utils.  |
@@ -52,9 +52,9 @@ This one isn't de-obf its fake / joke.
 | DelayTimer    | gG            | Nah           | System Time delay class.  |
 | EntityUtils   | Pg            | Nah           | Entity interaction utilities.  |
 | ObjectList    | QE            | Nah           | Class that allows list to be created?  |
-| TPSCalcListener  | VG         | Nah           | Listens to events to Calc TPS.  |
+| TPSCalcListener| VG           | Nah           | Listens to events to Calc TPS.  |
 | TPSCalc       | RG            | Nah           | Holds and Calcs TPS data / values.  |
-| ShutdownListener  | Vg        | Nah           | Listens to when the Games is closing down.  |
+| ShutdownListener| Vg          | Nah           | Listens to when the Games is closing down.  |
 | CategoryEnum  | JD            | Nah           | Enum Class that holds Modules Categories.  |
 | SettingsBase  | z             | Nah           | Base class for all settings.  |
 | EnumSetting   | ka            | Nah           | Enum Setting class.  |
@@ -68,7 +68,7 @@ This one isn't de-obf its fake / joke.
 | Event         | RF            | Nah           | Event Base class.  |
 | EventManager  | IH            | Nah           | Manages and executes events.  |
 | IEventManager | W             | Nah           | Interface for EventManager.  |
-| Af_Unknown_Event  | AF        | Nah           | Unknown Event.  |
+| Af_Unknown_Event| AF          | Nah           | Unknown Event.  |
 | MoveEvent     | Ee            | Nah           | MoveEvent for player movement events.  |
 | ShutdownEvent | *Lost*        | Nah           | Event executed when client is shutting down.   |
 | WorldClientEvent| De          | Nah           | World events.   |
@@ -79,9 +79,19 @@ This one isn't de-obf its fake / joke.
 | ColourUtils   | vH            | Nah           | Colour Utils.   |
 | AE_TimeTask   | AE            | Nah           | Timed Task that for HUD module.   |
 | InputEvent    | kE            | Nah           | Input event for mouse and keyboard. |
-| Keybind_Listener| cF          | Nah           | Keybind listener for Modulemanager.   |
+| KeybindListener| cF           | Nah           | Keybind listener for Modulemanager.   |
 | MacroManager  | lf            | Nah           | Manager for macros.   |
 | MacroObject   | lg            | Nah           | MacroObject holds data for Macros.   |
+| MacroListener | BD            | Nah           | MacroListener used to listen for key presses.   |
+| MacroFile     | nf            | Nah           | MacroFile saving.    |
+| FileObject    | Ib            | Nah           | File Saving utils.   |
+| ILoad         | j             | Nah           | Interface for load.   |
+| ISave         | g             | Nah           | Interface for save.   |
+| CommandFile   | Vi            | Nah           | File saving for CommandManager.   |
+| AltManager    | xI            | Nah           | Manager that handles login and outs of Alts.   |
+| AltObject     | ph            | Nah           | Alt Data object.   |
+| AltTypeEnum   | jG            | Nah           | AltType alt type enum.   |
+| AltJson       | Aj            | Nah           | Json related class for AltManager   |
 | Content   | Content   | Nah           | Content   |
 | Content   | Content   | Nah           | Content   |
 | Content   | Content   | Nah           | Content   |

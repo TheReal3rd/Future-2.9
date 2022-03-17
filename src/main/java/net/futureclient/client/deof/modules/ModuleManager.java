@@ -14,7 +14,7 @@ public class ModuleManager {
     public ModuleManager() {
         //TODO add module reg
         this.moduleList = this.moduleList.entrySet().stream().sorted(Comparator.comparing(entry -> ((ModuleBase)entry.getValue()).getName())).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (ma2, ma3) -> ma2, LinkedHashMap::new));
-        FutureClient.getINSTANCE().getEventManager().subscribe(new Keybind_Listener(this));
+        FutureClient.getINSTANCE().getEventManager().subscribe(new KeybindListener(this));
         new gE(this, "module_configurations.json");//TODO work on this but class has alot of broken code.
     }
 
