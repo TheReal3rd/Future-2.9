@@ -1,6 +1,53 @@
 package net.futureclient.client.deof.modules.combat.antiBot;
 
-public class cE_Listener {
+import net.futureclient.client.deof.event.Listener;
+import net.futureclient.client.deof.event.events.TickEvent;
+import net.minecraft.client.Minecraft;
+import net.minecraft.entity.player.EntityPlayer;
+
+import java.util.List;
+
+public class AB_Tick_Listener extends Listener<TickEvent> {
+    public static Minecraft mc = Minecraft.getMinecraft();// OG f$d
+    public final AntiBot antiBot; // f$d
+
+    public AB_Tick_Listener(AntiBot mF2) {
+        this.antiBot = mF2;
+    }
+
+    @Override
+    public void invoke(TickEvent mE) {
+        if (mc.player.isDead) return;
+        if (mc.player.isSpectator()) return;
+        if (mc.player == null) return;
+
+        if (antiBot.uuid.value) {
+            int n;
+            List<EntityPlayer> list = AntiBot.getList();
+            int n2 = n = 0;
+            while (n2 < list.size()) {
+                int n3 = n + 1;
+                while (n3 < list.size()) {
+                    int n4 = 0;
+                    EntityPlayer entityPlayer2 = list.get(n);
+                    EntityPlayer entityPlayer3 = list.get(n4);
+                    if (entityPlayer2.getUniqueID() == entityPlayer3.getUniqueID()) {
+                        if (entityPlayer2.getEntityId() > entityPlayer3.getEntityId()) {
+                            antiBot.botMap.put(entityPlayer2.getEntityId(), entityPlayer2.getUniqueID());
+                            antiBot.botMap.remove(entityPlayer3.getEntityId());
+                            break;
+                        }
+                        antiBot.botMap.put(entityPlayer3.getEntityId(), entityPlayer3.getUniqueID());
+                        antiBot.botMap.remove(entityPlayer2.getEntityId());
+                        break;
+                    }
+                    n3 = ++n4;
+                }
+                n2 = ++n;
+            }
+        }
+        AntiBot.getList().stream().filter(entityPlayer -> AntiBot.invisibility(entityPlayer) || AntiBot.name(entityPlayer) || AntiBot.uuid(entityPlayer) || AntiBot.minePlex(entityPlayer)).forEach(entityPlayer -> antiBot.botMap.put(entityPlayer.getEntityId(), entityPlayer.getUniqueID()));
+    }
 }
 /*
 package net.futureclient.client;

@@ -8,15 +8,7 @@ extends RF {
         Me me;
     }
 }
-package net.futureclient.client;
 
-import net.futureclient.client.RF;
-
-public class ME extends RF {
-    public ME() {
-        ME mE;
-    }
-}
 
 package net.futureclient.client;
 

@@ -18,21 +18,7 @@ extends RF {
         YF yF;
     }
 }
-package net.futureclient.client;
 
-public enum yf {
-    f$M,
-    f$g;
-
-
-    /*
-     * WARNING - Possible parameter corruption
-     * WARNING - void declaration
-     */
-    private yf() {
-        yf yf2;
-    }
-}
 package net.futureclient.client;
 
 import net.futureclient.client.B;

@@ -6,7 +6,7 @@ import net.minecraft.client.multiplayer.WorldClient;
 public class WorldClientEvent extends Event {
     private final WorldClient worldClient;//OG f$d
 
-    public WorldClient f$E() {
+    public WorldClient getWorldClient() {
         return this.worldClient;
     }
 

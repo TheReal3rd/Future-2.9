@@ -1,6 +1,119 @@
 package net.futureclient.client.deof.modules.combat.antiBot;
 
-public class AntiBot {
+import net.futureclient.client.deof.modules.ModuleStandard;
+import net.futureclient.client.deof.settings.SettingsBase;
+import net.futureclient.client.deof.utils.enums.CategoryEnum;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.MobEffects;
+
+import java.util.*;
+
+public class AntiBot extends ModuleStandard {
+    public static AntiBot INSTANCE;
+    public SettingsBase<Boolean> ping; // f$K;
+    public Map<Integer, UUID> botMap; // f$d;
+    private boolean hypixel; //  f$g;
+    public SettingsBase<Boolean> name; // f$j;
+    private boolean mineplex; // f$M;
+    public SettingsBase<Boolean> invisible; // f$b;
+    public SettingsBase<Boolean> uuid; // f$i;
+
+    //Removed params
+    public static boolean isHypixel() { // f$E
+        return AntiBot.INSTANCE.hypixel;
+    }
+
+    @Override
+    public void unSubListeners() {
+        super.unSubListeners();
+        botMap.clear();
+    }
+    public AntiBot() {
+        super("AntiBots", new String[]{"AntiBots", "AntiBot", "AntiEntity", "Antiboat"}, true, -8374971, CategoryEnum.COMBAT);
+        INSTANCE = this;
+        this.ping = new SettingsBase<>(true, "Ping", "Pin", "Pong");
+        this.invisible = new SettingsBase<Boolean>(true, "Invisible", "Invis");
+        this.name = new SettingsBase<Boolean>(true, "Name", "Nam");
+        this.uuid = new SettingsBase<Boolean>(true, "UUID", "UserID", "UID");
+        this.botMap = new HashMap<Integer, UUID>();
+        this.addSettings(ping, invisible, name, uuid);
+        this.addListeners(new AB_Tick_Listener(this), new AB_Packet_Listener(this), new AB_GUIScreen_Listener(this), new AB_WorldClient_Listener(this));
+    }
+
+    private boolean invisibilityCheck(EntityPlayer entityPlayer) { // f&B
+        return this.invisible.value && entityPlayer.isInvisible() && !entityPlayer.isPotionActive(MobEffects.INVISIBILITY);
+    }
+
+    //Removed param mF mF2,
+    public static boolean invisibility(EntityPlayer entityPlayer) {
+        return AntiBot.INSTANCE.invisibilityCheck(entityPlayer);
+    }
+
+    @Override
+    public void subListeners() {
+        this.subListeners();
+        if (!mc.isSingleplayer() && mc.getCurrentServerData() != null) {
+            hypixel = mc.getCurrentServerData().serverIP.toLowerCase().contains("hypixel");
+            mineplex = mc.getCurrentServerData().serverIP.toLowerCase().contains("mineplex");
+        }
+    }
+
+    private boolean uuidCheck(EntityPlayer entityPlayer) { // f$a
+        return uuid.value != false && mc.getConnection() != null && mc.getConnection().getPlayerInfo(entityPlayer.getUniqueID()) == null;
+    }
+
+    private boolean nameCheck(EntityPlayer entityPlayer) {//f$e
+        if (name.value) {
+            if (entityPlayer.getDisplayName().getFormattedText().equalsIgnoreCase(new StringBuilder().insert(0, entityPlayer.getName()).append("\u00a7r").toString())) {
+                if (!mc.player.getDisplayName().getFormattedText().equalsIgnoreCase(new StringBuilder().insert(0, mc.player.getName()).append("\u00a7r").toString())) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+
+    public static boolean setHypixel(boolean bl) {
+        AntiBot.INSTANCE.hypixel = bl;
+        return AntiBot.INSTANCE.hypixel;
+    }
+
+
+
+    //Removed param mF mF2,
+    public static boolean uuid(EntityPlayer entityPlayer) { // f$a
+        return AntiBot.INSTANCE.uuidCheck(entityPlayer);
+    }
+
+    private List<EntityPlayer> getPlayerList() { // f$e
+        ArrayList<EntityPlayer> arrayList = new ArrayList<EntityPlayer>(mc.world.playerEntities);
+        arrayList.remove(mc.player);
+        return arrayList;
+    }
+
+    //Removed param mF mF2,
+    public static boolean minePlex(EntityPlayer entityPlayer) { // f$E
+        return AntiBot.INSTANCE.minePlexCheck(entityPlayer);
+    }
+
+    private boolean minePlexCheck(EntityPlayer entityPlayer) { // f$E
+        return mineplex && (int)mc.player.posX == (int)entityPlayer.posX && (int)mc.player.posZ == (int)entityPlayer.posZ && (int)entityPlayer.posY - (int)mc.player.posY > 8;
+    }
+
+    public static List<EntityPlayer> getList() { // f$E
+        return AntiBot.INSTANCE.getPlayerList();
+    }
+
+    public static boolean name(EntityPlayer entityPlayer) {
+        return AntiBot.INSTANCE.nameCheck(entityPlayer);
+    }
+
+    //Removed param mF mF2,
+    public static boolean setMineplex(boolean bl) { // f$a
+        AntiBot.INSTANCE.mineplex = bl;
+        return AntiBot.INSTANCE.mineplex;
+    }
 }
 /*
 package net.futureclient.client;

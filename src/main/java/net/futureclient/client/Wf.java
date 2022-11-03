@@ -1,23 +1,5 @@
 package net.futureclient.client;
 
-import net.futureclient.client.RF;
-import net.minecraft.client.gui.GuiScreen;
-
-public class Wf
-extends RF {
-    private GuiScreen f$d;
-
-    public Wf(GuiScreen guiScreen) {
-        0.f$d = guiScreen;
-    }
-
-    public GuiScreen f$E() {
-        Wf wf;
-        return wf.f$d;
-    }
-}
-package net.futureclient.client;
-
 import net.futureclient.client.yf;
 
 public class WF {

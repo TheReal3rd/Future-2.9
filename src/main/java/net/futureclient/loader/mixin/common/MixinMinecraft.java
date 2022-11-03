@@ -10,7 +10,9 @@ import net.futureclient.client.Vd;
 import net.futureclient.client.Wf;
 import net.futureclient.client.Y;
 import net.futureclient.client.deof.FutureClient;
+import net.futureclient.client.deof.event.events.GUIScreenEvent;
 import net.futureclient.client.deof.event.events.InputEvent;
+import net.futureclient.client.deof.event.events.TickEvent;
 import net.futureclient.client.deof.utils.enums.InputEnum;
 import net.futureclient.client.kE;
 import net.futureclient.client.kH;
@@ -97,13 +99,22 @@ public abstract class MixinMinecraft implements Y {
 
     @Inject(method={"displayGuiScreen"}, at={@At(value="HEAD")}, cancellable=true)
     private void f$E(GuiScreen guiScreen, CallbackInfo callbackInfo) {
-        if (kH.f$E() != null) {
+        if (FutureClient.getINSTANCE() != null) {//TODO: This is something needs checking over when completed.
+            final GUIScreenEvent wf = new GUIScreenEvent(guiScreen);
+            FutureClient.getINSTANCE().getEventManager().invoke(wf);
+            if (wf.isCancelled()) {
+                callbackInfo.cancel();
+            }
+        }
+        /*
+                if (kH.f$E() != null) {
             Wf wf = new Wf(guiScreen);
             kH.f$E().f$E().f$E(wf);
             if (wf.f$E()) {
                 callbackInfo.cancel();
             }
         }
+         */
     }
 
     @Inject(method={"runGameLoop"}, at={@At(value="HEAD")})
@@ -128,7 +139,10 @@ public abstract class MixinMinecraft implements Y {
 
     @Inject(method={"runTick"}, at={@At(value="HEAD")})
     private void f$e(CallbackInfo callbackInfo) {
+        /*
         kH.f$E().f$E().f$E(new ME());
+         */
+        FutureClient.getINSTANCE().getEventManager().invoke(new TickEvent());
     }
 
     @Inject(method={"runTickKeyboard"}, at={@At(value="INVOKE_ASSIGN", target="org/lwjgl/input/Keyboard.getEventKeyState()Z", remap=false)})

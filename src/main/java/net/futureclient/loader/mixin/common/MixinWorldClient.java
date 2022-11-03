@@ -2,6 +2,8 @@ package net.futureclient.loader.mixin.common;
 
 import net.futureclient.client.De;
 import net.futureclient.client.SD;
+import net.futureclient.client.deof.FutureClient;
+import net.futureclient.client.deof.event.events.WorldClientEvent;
 import net.futureclient.client.kH;
 import net.minecraft.client.multiplayer.WorldClient;
 import org.spongepowered.asm.mixin.Mixin;
@@ -18,8 +20,8 @@ public abstract class MixinWorldClient {
 
     @Inject(method={"<init>"}, at={@At(value="RETURN")})
     private void f$E(CallbackInfo callbackInfo) {
-        WorldClient worldClient = (WorldClient)0;
-        kH.f$E().f$E().f$E(new De(worldClient));
+        WorldClient worldClient = ((WorldClient)(Object) this);
+        FutureClient.getINSTANCE().getEventManager().invoke(new WorldClientEvent(worldClient));
     }
 
     @ModifyVariable(method={"showBarrierParticles(IIIILjava/util/Random;ZLnet/minecraft/util/math/BlockPos$MutableBlockPos;)V"}, at=@At(value="HEAD"))

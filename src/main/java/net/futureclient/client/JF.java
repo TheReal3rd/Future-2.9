@@ -16,16 +16,6 @@ public enum JF {
 }
 package net.futureclient.client;
 
-import net.futureclient.client.IE;
-import net.minecraft.network.Packet;
-
-public final class jf extends IE {
-    public jf(Packet<?> packet) {
-        super(packet);
-    }
-}
-package net.futureclient.client;
-
 import net.futureclient.client.HE;
 import net.futureclient.client.Ha;
 import net.futureclient.client.Pf;

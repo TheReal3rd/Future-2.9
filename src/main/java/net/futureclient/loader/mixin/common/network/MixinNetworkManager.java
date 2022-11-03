@@ -5,6 +5,8 @@ import io.netty.util.concurrent.Future;
 import io.netty.util.concurrent.GenericFutureListener;
 import net.futureclient.client.Ke;
 import net.futureclient.client.ce;
+import net.futureclient.client.deof.FutureClient;
+import net.futureclient.client.deof.event.events.PacketThreeEvent;
 import net.futureclient.client.jf;
 import net.futureclient.client.kH;
 import net.futureclient.client.ve;
@@ -23,11 +25,18 @@ public abstract class MixinNetworkManager {
 
     @Inject(method={"channelRead0"}, at={@At(value="INVOKE", target="net/minecraft/network/Packet.processPacket(Lnet/minecraft/network/INetHandler;)V")}, cancellable=true)
     private void f$a(ChannelHandlerContext channelHandlerContext, Packet<?> packet, CallbackInfo callbackInfo) {
-        jf jf2 = new jf(packet);
+        PacketThreeEvent jf2 = new PacketThreeEvent(packet);
+        FutureClient.getINSTANCE().getEventManager().invoke(jf2);
+        if (jf2.isCancelled()) {//TODO check this.
+            callbackInfo.cancel();
+        }
+        /*
+                jf jf2 = new jf(packet);
         kH.f$E().f$E().f$E(jf2);
         if (jf2.f$E() != false) {
             callbackInfo.cancel();
         }
+         */
     }
 
     @Inject(method={"channelRead0"}, at={@At(value="RETURN")})

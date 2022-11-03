@@ -1,15 +1,5 @@
 package net.futureclient.client;
 
-import net.futureclient.client.Ye;
-import net.minecraft.network.Packet;
-
-public abstract class IE extends Ye {
-    public IE(Packet<?> packet) {
-        super(packet);
-    }
-}
-package net.futureclient.client;
-
 import net.futureclient.client.RF;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
