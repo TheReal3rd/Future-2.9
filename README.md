@@ -3,6 +3,8 @@ Future 2.9 Decomp i've started this whilest board.
 
 This isn't complete just need to go through all the classes and rename and correct everything, This project won't build plus the build settings aren't setup for this.
 
+Once i've done this ill prob attempt decomping RusherHack, I've got an old build that im planning to hit. 
+
 #Check list:
 1. Identify All the classes / Organize them.
 2. Make the Client Build with only required modules & components working.
