@@ -67,6 +67,18 @@ implements b {
     @Shadow
     public abstract boolean func_189652_ae();
 
+    @Shadow public abstract AxisAlignedBB getEntityBoundingBox();
+
+    @Shadow public double posZ;
+
+    @Shadow public boolean onGround;
+
+    @Shadow public double posX;
+
+    @Shadow public float rotationPitch;
+
+    @Shadow public float rotationYaw;
+
     @Override
     @Accessor
     public abstract boolean isIsInWeb();

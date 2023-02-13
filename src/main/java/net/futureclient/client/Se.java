@@ -1,19 +1,4 @@
-package net.futureclient.client;
 
-public enum Se {
-    f$i,
-    f$M,
-    f$g;
-
-
-    /*
-     * WARNING - Possible parameter corruption
-     * WARNING - void declaration
-     */
-    private Se() {
-        Se se;
-    }
-}
 package net.futureclient.client;
 
 import net.futureclient.client.Ne;

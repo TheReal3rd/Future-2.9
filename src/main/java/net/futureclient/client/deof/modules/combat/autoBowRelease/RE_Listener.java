@@ -1,6 +1,35 @@
 package net.futureclient.client.deof.modules.combat.autoBowRelease;
 
-public class RE_Listener {
+import net.futureclient.client.deof.FutureClient;
+import net.futureclient.client.deof.event.Listener;
+import net.futureclient.client.deof.event.events.UpdateWalkingEvent;
+import net.futureclient.client.deof.unknown.B_Unknown_Interface;
+import net.futureclient.client.deof.utils.enums.PrePostEnum;
+import net.futureclient.client.deof.utils.game.EntityUtils;
+import net.minecraft.item.ItemBow;
+import net.minecraft.item.ItemStack;
+
+public class RE_Listener extends Listener<UpdateWalkingEvent> {
+    public final AutoBowRelease autoBowRelease;// OG Le f$d
+
+    public RE_Listener(AutoBowRelease autoBowRelease) {
+        this.autoBowRelease = autoBowRelease;
+    }
+
+    @Override
+    public void invoke(UpdateWalkingEvent pf) {
+        ItemStack itemStack;
+        if (pf.getPostState() != PrePostEnum.POST) {//TODO I am assuming it's a post. Needs testing when buildable.
+            return;
+        }
+        if (!((B_Unknown_Interface)autoBowRelease.getMC().player).getActiveItemStack().isEmpty() && (itemStack = EntityUtils.isPlayerHoldingItem(ItemBow.class)) != null) {
+            float f = itemStack.getMaxItemUseDuration() - autoBowRelease.getMC().player.getItemInUseCount();
+            float f2 = AutoBowRelease.getTPSSync().getValue() ? 20.0f - FutureClient.getINSTANCE().getTpsCalc().getTPS() : 0.0f;
+            if (f - f2 >= AutoBowRelease.getDelay().getValue().floatValue()) {
+                autoBowRelease.getMC().playerController.onStoppedUsingItem(autoBowRelease.getMC().player);
+            }
+        }
+    }
 }
 /*
 package net.futureclient.client;

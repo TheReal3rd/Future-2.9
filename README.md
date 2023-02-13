@@ -106,6 +106,36 @@ This one isn't de-obf its fake / joke.
 | AutoArmour              | ef           | Nah         | AutoArmour Module.                                       |
 | AA_Tick_Listener        | uD           | Nah         | AutoArmour TicEvent Listener                             |
 | AutoTotem               | yE           | Nah         | AutoTotem Module                                         |
+| AutoBowRelease          | Le           | Nah         | AutoBowRelease Module                                    |
+| RE_Listener             | RE           | Nah         | AutoBowRelease UpdateWalkingEvent Listener.              |
+| PrePostEnum             | kF           | Nah         | Enum to determine whether the event is post or pre.      |
+| SwapEnum                | Se           | Nah         | SwapEnum for AutoCrystal.                                |
+| AutoCrystal             | hF           | Nah         | AutoCrystal Module                                       |
+| Content                 | Content      | Nah         | Content                                                  |
+| Content                 | Content      | Nah         | Content                                                  |
+| Content                 | Content      | Nah         | Content                                                  |
+| Content                 | Content      | Nah         | Content                                                  |
+| Content                 | Content      | Nah         | Content                                                  |
+| Content                 | Content      | Nah         | Content                                                  |
+| Content                 | Content      | Nah         | Content                                                  |
+| Content                 | Content      | Nah         | Content                                                  |
+| Content                 | Content      | Nah         | Content                                                  |
+| Content                 | Content      | Nah         | Content                                                  |
+| Content                 | Content      | Nah         | Content                                                  |
+| Content                 | Content      | Nah         | Content                                                  |
+| Content                 | Content      | Nah         | Content                                                  |
+| Content                 | Content      | Nah         | Content                                                  |
+| Content                 | Content      | Nah         | Content                                                  |
+| Content                 | Content      | Nah         | Content                                                  |
+| Content                 | Content      | Nah         | Content                                                  |
+| Content                 | Content      | Nah         | Content                                                  |
+| Content                 | Content      | Nah         | Content                                                  |
+| Content                 | Content      | Nah         | Content                                                  |
+| Content                 | Content      | Nah         | Content                                                  |
+| Content                 | Content      | Nah         | Content                                                  |
+| Content                 | Content      | Nah         | Content                                                  |
+| Content                 | Content      | Nah         | Content                                                  |
+| Content                 | Content      | Nah         | Content                                                  |
 | Content                 | Content      | Nah         | Content                                                  |
 | Content                 | Content      | Nah         | Content                                                  |
 | Content                 | Content      | Nah         | Content                                                  |

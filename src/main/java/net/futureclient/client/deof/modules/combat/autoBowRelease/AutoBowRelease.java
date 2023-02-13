@@ -1,6 +1,35 @@
 package net.futureclient.client.deof.modules.combat.autoBowRelease;
 
-public class AutoBowRelease {
+import net.futureclient.client.deof.modules.ModuleStandard;
+import net.futureclient.client.deof.settings.NumberSetting;
+import net.futureclient.client.deof.settings.SettingsBase;
+import net.futureclient.client.deof.utils.enums.CategoryEnum;
+import net.minecraft.client.Minecraft;
+
+public class AutoBowRelease extends ModuleStandard {
+    public static AutoBowRelease INSTANCE;
+    private final SettingsBase<Boolean> tpsSync; //f$d
+    private final NumberSetting delay; // f$g
+
+    public AutoBowRelease() {
+        super("AutoBowRelease", new String[] {"AutoBowRelease", "BowRelease", "BowSpammer"}, true, -4632381, CategoryEnum.COMBAT);
+        INSTANCE = this;
+        delay = new NumberSetting((Number)Float.valueOf(21.0f), (Number)Float.valueOf(3.0f), (Number)Float.valueOf(21.0f), 1, "Ticks", "Delay");
+        tpsSync = new SettingsBase<Boolean>(true, "TPSSync", "Sync", "TPSSynchronize", "Synchronize");
+
+        addSettings(delay, tpsSync);
+        INSTANCE.addListeners(new RE_Listener(this));
+    }
+
+    public static NumberSetting getDelay() { // f$E
+        return AutoBowRelease.INSTANCE.delay;
+    }
+    public static SettingsBase<Boolean> getTPSSync() { // f$E
+        return AutoBowRelease.INSTANCE.tpsSync;
+    }
+    public Minecraft getMC() {
+        return mc;
+    }
 }
 /*
 package net.futureclient.client;

@@ -1,8 +1,552 @@
 package net.futureclient.client.deof.modules.combat.autoCrystal;
 
 import net.futureclient.client.*;
+import net.futureclient.client.deof.modules.ModuleStandard;
+import net.futureclient.client.deof.settings.EnumSetting;
+import net.futureclient.client.deof.settings.NumberSetting;
+import net.futureclient.client.deof.settings.SettingsBase;
+import net.futureclient.client.deof.utils.enums.CategoryEnum;
+import net.minecraft.entity.item.EntityEnderCrystal;
 
-public class AutoCrystal {
+public class AutoCrystal extends ModuleStandard {
+    private final SettingsBase<Boolean> f$y;// OG f$y
+    private final NumberSetting f$a;// OG f$a
+    private final SettingsBase<Boolean> f$J;// OG f$J
+    private final NumberSetting f$A;//OG f$A
+    private final SettingsBase<Boolean> f$m;//OG f$m
+    private final SettingsBase<Boolean> f$D;//OG f$D
+    private final SettingsBase<Boolean> f$l;//OG f$l
+    private final Bh f$I;//OG f$I
+    private iE f$i;//OG f$i
+    private final SettingsBase<Boolean> f$E;//OG f$E
+    private final EnumSetting<SwapEnum> f$L;//OG f$L
+    private final NumberSetting f$C;//OG f$C
+    private final SettingsBase<Boolean> f$H;//OG f$H
+    private final NumberSetting f$G;//OG f$G
+    private double f$b;//OG f$b
+    private final NumberSetting f$h;//OG f$h
+    private final NumberSetting f$f;//OG f$f
+    private float f$d;//OG f$d
+    private final SettingsBase<Boolean> f$F;//OG f$F
+    private final Bh f$e;//OG f$e
+    private final NumberSetting f$k;//OG f$k
+    private double f$K;//OG f$K
+    private float f$g;//OG f$g
+    private int f$M;//OG f$M
+    private final NumberSetting f$B;//OG f$B
+    private EntityEnderCrystal f$j;//OG f$j
+    private final NumberSetting f$c;//OG f$c
+
+    public static Minecraft f$c() {
+        return f$d;
+    }
+
+    public static z f$a(hF hF2) {
+        return hF2.f$y;
+    }
+
+    public static Minecraft f$d() {
+        return f$d;
+    }
+
+    public AutoCrystal() {
+        super("AutoCrystal", new String[] { "AutoCrystal", "CrystalNuker", "CrystalNuke", "CrystalAura", "AutoCrystaler", "CA" }, true, 16715563, CategoryEnum.COMBAT);
+        this.f$y = new SettingsBase<>(true, "Rotate", "Aiming", "Aim", "Rotation", "Facing", "Face", "F", "Look");
+        this.f$G = new NumberSetting((Number)0.0, (Number)0.0, (Number)10.0, 0.1, "RandomSpeed","randomsped", "rspeed");
+        this.f$h = new NumberSetting((Number)12.0, (Number)0.1, (Number)20.0, 0.1, "AttackSpeed", "CPS", "clicks","click");
+        this.f$f = new NumberSetting((Number)4.0, (Number)0.1, (Number)6.0, 0.1, "AttackRange","AttackDistnace", "AttackRang", "AttackLength");
+        this.f$k = new NumberSetting((Number)4.0, (Number)0.1, (Number)6.0, 0.1, "AttackWallRange", "WallAttackDistnace", "WallAttackRang", "WallAttackLength");
+        this.f$F = new SettingsBase<>(true, "AntiWeakness", "Weakness");
+        this.f$J = new SettingsBase<>(true, "Players", "player", "p");
+        this.f$E = new SettingsBase<>(false, "Monsters","monster", "mon");
+        this.f$H = new SettingsBase<>(false, "Neutrals", "Passive", "Passives", "Neutral", "neu", "n");
+        this.f$m = new SettingsBase<>(false, "Animals","ani", "animal");
+        this.f$D = new SettingsBase<>(true, "Place","AutoPlace");
+        this.f$l = new SettingsBase<>(true, "Raytrace","raytrace","rt");
+
+
+
+        this.f$L = new EnumSetting<SwapEnum>(SwapEnum.f$M, "Swap", "Switch", "s");
+
+
+
+        hF hF16 = hF2;
+        String[] stringArray15 = new String[3];
+        stringArray15[0] = "PlaceSpeed";
+        stringArray15[1] = "pps";
+        stringArray15[2] = "pspeed";
+        hF16.f$c = new s((Number)12.0, (Number)0.1, (Number)20.0, 0.1, stringArray15);
+        hF hF17 = hF2;
+        String[] stringArray16 = new String[4];
+        stringArray16[0] = "PlaceRange";
+        stringArray16[1] = "PlaceDistnace";
+        stringArray16[2] = "PlaceRang";
+        stringArray16[3] = "PlaceLength";
+        hF17.f$A = new s((Number)4.0, (Number)1.0, (Number)6.0, 0.1, stringArray16);
+        hF hF18 = hF2;
+        String[] stringArray17 = new String[2];
+        stringArray17[0] = "EnemyRange";
+        stringArray17[1] = "MaxEnemyRange";
+        hF18.f$B = new s((Number)13.0, (Number)0.0, (Number)13.0, 0.1, stringArray17);
+        hF hF19 = hF2;
+        String[] stringArray18 = new String[3];
+        stringArray18[0] = "MinDamage";
+        stringArray18[1] = "MinimumDamage";
+        stringArray18[2] = "Damage";
+        hF19.f$a = new s((Number)0.0, (Number)0.0, (Number)20.0, 0.1, stringArray18);
+        hF hF20 = hF2;
+        String[] stringArray19 = new String[3];
+        stringArray19[0] = "LethalMultiplier";
+        stringArray19[1] = "Multiplier";
+        stringArray19[2] = "Lethal";
+        hF20.f$C = new s((Number)0.0, (Number)0.0, (Number)4.0, 0.5, stringArray19);
+        hF hF21 = hF2;
+        hF hF22 = hF2;
+        hF hF23 = hF2;
+        hF23.f$e = new Bh();
+        hF hF24 = hF2;
+        hF23.f$I = new Bh();
+        hF22.f$K = 69.0;
+        hF22.f$b = 69.0;
+        hF21.f$j = null;
+        hF21.f$i = null;
+        hF2.f$M = -1;
+        z[] zArray = new z[18];
+        zArray[0] = hF2.f$y;
+        zArray[1] = hF2.f$G;
+        zArray[2] = hF2.f$h;
+        zArray[3] = hF2.f$f;
+        zArray[4] = hF2.f$k;
+        zArray[5] = hF2.f$F;
+        zArray[6] = hF2.f$J;
+        zArray[7] = hF2.f$E;
+        zArray[8] = hF2.f$H;
+        zArray[9] = hF2.f$m;
+        zArray[10] = hF2.f$D;
+        zArray[11] = hF2.f$l;
+        zArray[12] = hF2.f$L;
+        zArray[13] = hF2.f$c;
+        zArray[14] = hF2.f$A;
+        zArray[15] = hF2.f$B;
+        zArray[16] = hF2.f$a;
+        zArray[17] = hF2.f$C;
+        hF2.f$E(zArray);
+        Ha[] haArray = new Ha[3];
+        haArray[0] = new NE(hF2);
+        haArray[1] = new KF(hF2);
+        haArray[2] = new vD(hF2);
+        hF2.f$E(haArray);
+    }
+
+    public static double f$E(hF hF2) {
+        return hF2.f$b;
+    }
+
+    public static Minecraft f$e() {
+        return f$d;
+    }
+
+    public static Minecraft f$m() {
+        return f$d;
+    }
+
+    public static Minecraft f$I() {
+        return f$d;
+    }
+
+    public static float f$E(hF hF2) {
+        return hF2.f$d;
+    }
+
+    public static Minecraft f$b() {
+        return f$d;
+    }
+
+    public static Minecraft f$A() {
+        return f$d;
+    }
+
+    public static z f$e(hF hF2) {
+        return hF2.f$D;
+    }
+
+    private float f$E(float f) {
+        EnumDifficulty enumDifficulty = hF.f$d.world.func_175659_aa();
+        if (enumDifficulty == EnumDifficulty.PEACEFUL) {
+            f = 0.0f;
+            return 0.0f;
+        }
+        if (enumDifficulty == EnumDifficulty.EASY) {
+            f = Math.min(f / 2.0f + 1.0f, f);
+            return f;
+        }
+        if (enumDifficulty == EnumDifficulty.HARD) {
+            f = f * 3.0f / 2.0f;
+        }
+        return f;
+    }
+
+    public static float f$a(hF hF2, float f) {
+        hF2.f$d = f;
+        return hF2.f$d;
+    }
+
+    public static int f$E(hF hF2) {
+        return hF2.f$M;
+    }
+
+    public static Minecraft f$C() {
+        return f$d;
+    }
+
+    public static iE f$E(hF hF2, iE iE2) {
+        hF2.f$i = iE2;
+        return hF2.f$i;
+    }
+
+    public static Minecraft f$F() {
+        return f$d;
+    }
+
+    public static EntityEnderCrystal f$E(hF hF2) {
+        return hF2.f$j;
+    }
+
+    public static int f$E(hF hF2, int n) {
+        hF2.f$M = n;
+        return hF2.f$M;
+    }
+
+    public static Minecraft f$G() {
+        return f$d;
+    }
+
+    public static ka f$E(hF hF2) {
+        return hF2.f$L;
+    }
+
+    public static Bh f$E(hF hF2) {
+        return hF2.f$I;
+    }
+
+    public static iE f$E(hF hF2) {
+        return hF2.f$i;
+    }
+
+    public static Bh f$a(hF hF2) {
+        return hF2.f$e;
+    }
+
+    public static float f$a(hF hF2) {
+        return hF2.f$g;
+    }
+
+    public iE f$E() {
+        hF hF2;
+        return hF2.f$i;
+    }
+
+    public static Minecraft f$a() {
+        return f$d;
+    }
+
+    public static Minecraft f$K() {
+        return f$d;
+    }
+
+    public static double f$a(hF hF2) {
+        return hF2.f$K;
+    }
+
+    private List<BlockPos> f$E(Entity entity, float f) {
+        ArrayList<BlockPos> arrayList = new ArrayList<BlockPos>();
+        Entity entity2 = entity;
+        int n = (int)entity2.posX;
+        int n2 = (int)entity2.posY;
+        int n3 = (int)entity2.posZ;
+        int n4 = (int)(f + 2.0f);
+        double d = entity2.posX - 0.5;
+        double d2 = entity2.posY + (double)entity.getEyeHeight() - 1.0;
+        double d3 = entity2.posZ - 0.5;
+        int n5 = entity = n - n4;
+        while (n5 <= n + n4) {
+            int n6 = n3 - n4;
+            while (n6 <= n3 + n4) {
+                int n7;
+                int n8 = n2 - n4;
+                while (n8 < n2 + n4) {
+                    int n9;
+                    float f2 = f;
+                    if (((double)entity - d) * ((double)entity - d) + ((double)n9 - d2) * ((double)n9 - d2) + ((double)n7 - d3) * ((double)n7 - d3) <= (double)(f2 * f2)) {
+                        arrayList.add(new BlockPos(entity, n9, n7));
+                    }
+                    n8 = ++n9;
+                }
+                n6 = ++n7;
+            }
+            n5 = ++entity;
+        }
+        return arrayList;
+    }
+
+    public static z f$E(hF hF2) {
+        return hF2.f$F;
+    }
+
+    public static Minecraft f$D() {
+        return f$d;
+    }
+
+    public static s f$E(hF hF2) {
+        return hF2.f$k;
+    }
+
+    public static Minecraft f$k() {
+        return f$d;
+    }
+
+    public static Minecraft f$g() {
+        return f$d;
+    }
+
+    public static Minecraft f$i() {
+        return f$d;
+    }
+
+    public static Minecraft f$f() {
+        return f$d;
+    }
+
+    public static s f$A(hF hF2) {
+        return hF2.f$h;
+    }
+
+    public static Minecraft f$M() {
+        return f$d;
+    }
+
+
+    private iE f$a() {
+        var1_1 = null;
+        var2_2 = 0.5;
+        var4_3 = Pg.f$a().iterator();
+        block0: while (true) {
+            v0 = var4_3;
+            while (v0.hasNext()) {
+                var5_4 = var4_3.next();
+                if (!(var5_4 instanceof EntityLivingBase)) continue block0;
+                if (!0.f$E((EntityLivingBase)(var5_4 = (EntityLivingBase)var5_4))) {
+                    v0 = var4_3;
+                    continue;
+                }
+                var6_5 = 0.f$E((Entity) hF.f$d.player, 0.f$A.f$E().floatValue()).iterator();
+                block2: while (true) {
+                    v1 = var6_5;
+                    while (true) {
+                        if (v1.hasNext()) ** break;
+                        continue block0;
+                        v2 = var7_6 = var6_5.next();
+                        var8_7 = (double)v2.func_177958_n() + 0.5;
+                        if (var5_4.func_70092_e(var8_7, var10_8 = (double)v2.func_177956_o() + 1.0, var12_9 = (double)v2.func_177952_p() + 0.5) >= 0.f$B.f$E().doubleValue() * 0.f$B.f$E().doubleValue()) continue block2;
+                        if (!0.f$E(var7_6)) {
+                            v1 = var6_5;
+                            continue;
+                        }
+                        var14_10 = 0.f$E(var8_7, var10_8, var12_9, (EntityLivingBase)var5_4);
+                        if (v3 < 0.f$a.f$E().doubleValue() && var14_10 * (1.0 + 0.f$C.f$E().doubleValue()) < (double)(var5_4.getHealth() + var5_4.getAbsorptionAmount())) {
+                            v1 = var6_5;
+                            continue;
+                        }
+                        if (!(var14_10 > var2_2)) continue block2;
+                        var8_7 = 0.f$E(var8_7, var10_8, var12_9, (EntityLivingBase)hF.f$d.player);
+                        if (v4 > var14_10 && var14_10 < (double)(var5_4.getHealth() + var5_4.getAbsorptionAmount())) continue block2;
+                        if (!((double)(hF.f$d.player.func_110143_aJ() + hF.f$d.player.func_110139_bj()) - var8_7 <= 0.5)) break;
+                        v1 = var6_5;
+                    }
+                    var2_2 = var14_10;
+                    var1_1 = var7_6;
+                }
+            }
+            break;
+        }
+        if (var1_1 == null) {
+            return null;
+        }
+        return new iE(var1_1, var2_2, null);
+    }
+
+    public static Minecraft f$B() {
+        return f$d;
+    }
+
+    public static int f$a(hF hF2) {
+        return hF2.f$a();
+    }
+
+    public static Minecraft f$H() {
+        return f$d;
+    }
+
+    public static float f$E(hF hF2, float f) {
+        hF2.f$g = f;
+        return hF2.f$g;
+    }
+
+    public static iE f$a(hF hF2) {
+        return hF2.f$a();
+    }
+
+    public static s f$B(hF hF2) {
+        return hF2.f$c;
+    }
+
+    private boolean f$E(BlockPos blockPos) {
+        if (0.f$l.f$E().booleanValue() && !CG.f$e(blockPos)) {
+            return false;
+        }
+        Block block = hF.f$d.world.func_180495_p(blockPos).getBlock();
+        BlockPos blockPos2 = blockPos;
+        blockPos = blockPos2.up(1);
+        BlockPos blockPos3 = blockPos2.up(2);
+        if ((block.equals(Blocks.OBSIDIAN) || block.equals(Blocks.BEDROCK)) && hF.f$d.world.func_180495_p(blockPos).getBlock().equals(Blocks.AIR) && hF.f$d.world.func_180495_p(blockPos3).getBlock().equals(Blocks.AIR)) {
+            if (hF.f$d.world.func_72872_a(Entity.class, new AxisAlignedBB(blockPos, blockPos3.add(1, 1, 1))).isEmpty()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static Minecraft f$l() {
+        return f$d;
+    }
+
+    public static Minecraft f$U() {
+        return f$d;
+    }
+
+    public static Minecraft f$j() {
+        return f$d;
+    }
+
+    private boolean f$E(EntityLivingBase entityLivingBase) {
+        if (Pg.f$E((Entity)entityLivingBase)) {
+            Ze ze = (Ze) kH.f$E().f$E().f$E(Ze.class);
+            if (entityLivingBase instanceof EntityPlayer && 0.f$J.f$E().booleanValue() && entityLivingBase != hF.f$d.player && entityLivingBase.func_145782_y() != -1337 && ze != null && (!ze.f$h.f$E().booleanValue() || !kH.f$E().f$E().f$E(entityLivingBase.func_70005_c_()))) {
+                return true;
+            }
+            if ((BI.f$M((Entity)entityLivingBase) || BI.f$C((Entity)entityLivingBase)) && 0.f$E.f$E().booleanValue()) {
+                return true;
+            }
+            if (BI.f$j((Entity)entityLivingBase) && 0.f$H.f$E().booleanValue()) {
+                return true;
+            }
+            if (BI.f$I((Entity)entityLivingBase) && 0.f$m.f$E().booleanValue()) {
+                return true;
+            }
+            return false;
+        }
+        return false;
+    }
+
+    public static EntityEnderCrystal f$E(hF hF2, EntityEnderCrystal entityEnderCrystal) {
+        hF2.f$j = entityEnderCrystal;
+        return hF2.f$j;
+    }
+
+    private int f$a() {
+        int n;
+        if (hF.f$d.player.field_71071_by.getCurrentItem().getItem() instanceof ItemEndCrystal) {
+            return hF.f$d.player.field_71071_by.currentItem;
+        }
+        int n2 = n = 0;
+        while (n2 < 9) {
+            if (hF.f$d.player.field_71071_by.getStackInSlot(n).getItem() instanceof ItemEndCrystal) {
+                return n;
+            }
+            n2 = ++n;
+        }
+        return -1;
+    }
+
+    @Override
+    public void f$B() {
+        hF hF2;
+        hF hF3 = hF2;
+        super.f$B();
+        hF3.f$j = null;
+        hF3.f$i = null;
+    }
+
+    public static s f$e(hF hF2) {
+        return hF2.f$A;
+    }
+
+    public static Minecraft f$E() {
+        return f$d;
+    }
+
+    public static Minecraft f$J() {
+        return f$d;
+    }
+
+    public static s f$K(hF hF2) {
+        return hF2.f$G;
+    }
+
+    public static s f$a(hF hF2) {
+        return hF2.f$f;
+    }
+
+    private float f$E(EntityEnderCrystal entityEnderCrystal, EntityLivingBase entityLivingBase) {
+        return 0.f$E(entityEnderCrystal.field_70165_t, entityEnderCrystal.field_70163_u, entityEnderCrystal.field_70161_v, entityLivingBase);
+    }
+
+    public static double f$a(hF hF2, double d) {
+        hF2.f$K = d;
+        return hF2.f$K;
+    }
+
+    public static Minecraft f$h() {
+        return f$d;
+    }
+
+    public float f$E(double d7, double d2, double d3, EntityLivingBase entityLivingBase) {
+        double d4;
+        float f = 12.0f;
+        double d5 = entityLivingBase.func_70011_f(d7, d2, d3) / 12.0;
+        if (d4 > 1.0) {
+            return 0.0f;
+        }
+        double d6 = entityLivingBase.field_70170_p.getBlockDensity(new Vec3d(d7, d2, d3), entityLivingBase.func_174813_aQ());
+        d5 = (1.0 - d5) * d6;
+        f = (int)((d5 * d5 + d5) / 2.0 * 7.0 * 12.0 + 1.0);
+        f = 0.f$E(f);
+        DamageSource d7 = DamageSource.causeExplosionDamage((Explosion)new Explosion((World)hF.f$d.world, (Entity)hF.f$d.player, d7, d2, d3, 6.0f, false, true));
+        f = CombatRules.getDamageAfterAbsorb((float)f, (float)entityLivingBase.getTotalArmorValue(), (float)((float)entityLivingBase.getEntityAttribute(SharedMonsterAttributes.ARMOR_TOUGHNESS).getAttributeValue()));
+        int n = EnchantmentHelper.getEnchantmentModifierDamage((Iterable)entityLivingBase.getArmorInventoryList(), (DamageSource)d7);
+        if (n > 0) {
+            f = CombatRules.getDamageAfterMagicAbsorb((float)f, (float)n);
+        }
+        if ((entityLivingBase = entityLivingBase.getActivePotionEffect(MobEffects.RESISTANCE)) != null) {
+            f = f * (float)(25 - (entityLivingBase.getAmplifier() + 1) * 5) / 25.0f;
+        }
+        f = Math.max(f, 0.0f);
+        return f;
+    }
+
+    public EntityEnderCrystal f$E() {
+        hF hF2;
+        return hF2.f$j;
+    }
+
+    public static double f$E(hF hF2, double d) {
+        hF2.f$b = d;
+        return hF2.f$b;
+    }
+
+    public static Minecraft f$L() {
+        return f$d;
+    }
 }
 /*
 package net.futureclient.client;

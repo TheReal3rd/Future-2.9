@@ -7,6 +7,9 @@ import net.futureclient.client.KD;
 import net.futureclient.client.Pf;
 import net.futureclient.client.bg;
 import net.futureclient.client.dF;
+import net.futureclient.client.deof.FutureClient;
+import net.futureclient.client.deof.event.events.UpdateWalkingEvent;
+import net.futureclient.client.deof.utils.enums.PrePostEnum;
 import net.futureclient.client.f;
 import net.futureclient.client.iD;
 import net.futureclient.client.kF;
@@ -15,7 +18,6 @@ import net.futureclient.client.lG;
 import net.futureclient.client.mc;
 import net.futureclient.client.rA;
 import net.futureclient.client.ze;
-import net.futureclient.loader.mixin.common.entity.living.player.MixinAbstractClientPlayer;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.audio.ISound;
 import net.minecraft.client.audio.SoundHandler;
@@ -36,13 +38,11 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
  * Duplicate member names - consider using --renamedupmembers true
  */
 @Mixin(value={EntityPlayerSP.class})
-public abstract class MixinEntityPlayerSP
-extends MixinAbstractClientPlayer
-implements f {
+public abstract class MixinEntityPlayerSP extends MixinAbstractClientPlayer implements f {
     @Shadow
     public Minecraft field_71159_c;
     private KD f$g;
-    private Pf f$d;
+    private UpdateWalkingEvent updateWalkingEvent;
 
     public MixinEntityPlayerSP() {
         MixinEntityPlayerSP mixinEntityPlayerSP;
@@ -64,7 +64,7 @@ implements f {
 
     @Inject(method={"onUpdate"}, at={@At(value="FIELD", target="net/minecraft/client/entity/EntityPlayerSP.connection:Lnet/minecraft/client/network/NetHandlerPlayClient;", ordinal=0, shift=At.Shift.BEFORE)})
     private void f$K(CallbackInfo callbackInfo) {
-        0.f$g = new KD(Fg.f$M, 0.field_70177_z, 0.field_70125_A, 0.field_70122_E);
+        0.f$g = new KD(Fg.f$M, 0.rotationYaw, 0.rotationPitch, 0.onGround);
         kH.f$E().f$E().f$E(0.f$g);
     }
 
@@ -94,14 +94,14 @@ implements f {
         kH.f$E().f$E().f$E(ze2);
         for (int i = 0; i < ze2.f$E() - 1; ++i) {
             EntityPlayerSP entityPlayerSP = (EntityPlayerSP)0;
-            int 02 = 0.field_184617_aD;
-            int 03 = 0.field_184628_bn;
+            int 02 = field_184617_aD;
+            int 03 = field_184628_bn;
             int 04 = entityPlayerSP.field_70737_aN;
             float 05 = entityPlayerSP.field_70732_aI;
             float 06 = entityPlayerSP.field_70733_aJ;
             int 07 = entityPlayerSP.field_110158_av;
             boolean 08 = entityPlayerSP.field_82175_bq;
-            float 09 = entityPlayerSP.field_70177_z;
+            float 09 = entityPlayerSP.rotationYaw;
             float 010 = entityPlayerSP.field_70126_B;
             float 011 = entityPlayerSP.field_70761_aq;
             float 012 = entityPlayerSP.field_70760_ar;
@@ -132,7 +132,7 @@ implements f {
             entityPlayerSP.field_70733_aJ = 06;
             entityPlayerSP.field_110158_av = 07;
             entityPlayerSP.field_82175_bq = 08;
-            entityPlayerSP.field_70177_z = 09;
+            entityPlayerSP.rotationYaw = 09;
             entityPlayerSP.field_70126_B = 010;
             entityPlayerSP.field_70761_aq = 011;
             entityPlayerSP.field_70760_ar = 012;
@@ -155,17 +155,30 @@ implements f {
             entityPlayerSP.field_70721_aZ = 029;
             entityPlayerSP.field_184618_aE = 030;
             entityPlayerSP.field_184619_aG = 031;
-            0.func_175161_p();
+            func_175161_p();
         }
     }
 
     @Inject(method={"onUpdateWalkingPlayer"}, at={@At(value="HEAD")}, cancellable=true)
     private void f$a(CallbackInfo callbackInfo) {
-        0.f$d = new Pf(kF.f$M, 0.field_70177_z, 0.field_70125_A, 0.field_70165_t, 0.func_174813_aQ().minY, 0.field_70161_v, 0.field_70122_E);
-        kH.f$E().f$E().f$E(0.f$d);
-        if (0.f$d.f$E()) {
+        updateWalkingEvent = new UpdateWalkingEvent(PrePostEnum.PRE, this.rotationYaw, this.rotationPitch, this.posX, this.getEntityBoundingBox().minY, this.posZ, this.onGround);
+        FutureClient.getINSTANCE().getEventManager().invoke(updateWalkingEvent);
+        if (updateWalkingEvent.isCancelled()) {
             callbackInfo.cancel();
         }
+        /*
+                f$d = new Pf(kF.f$M, this.rotationYaw, this.rotationPitch, this.posX, this.getEntityBoundingBox().minY, this.posZ, this.onGround);
+        kH.f$E().f$E().f$E(0.f$d);
+        if (f$d.f$E()) {
+            callbackInfo.cancel();
+        }
+         */
+    }
+
+    @Inject(method={"onUpdateWalkingPlayer"}, at={@At(value="RETURN")})
+    private void f$E(CallbackInfo callbackInfo) {
+        FutureClient.getINSTANCE().getEventManager().invoke(new UpdateWalkingEvent(PrePostEnum.POST, updateWalkingEvent.getYaw1(), updateWalkingEvent.getPitch1(), updateWalkingEvent.getX1(), updateWalkingEvent.getY1(), updateWalkingEvent.getZ1(), updateWalkingEvent.isOnGround()));
+        //FutureClient.getINSTANCE().getEventManager().invoke(new Pf(kF.f$g, f$d.f$B(), f$d.f$e(), f$d.f$K(), f$d.f$e(), f$d.f$E(), f$d.f$a()));
     }
 
     @Redirect(method={"onUpdateWalkingPlayer"}, at=@At(value="FIELD", target="net/minecraft/client/entity/EntityPlayerSP.posX:D"))
@@ -196,11 +209,6 @@ implements f {
     @Redirect(method={"onUpdateWalkingPlayer"}, at=@At(value="FIELD", target="net/minecraft/client/entity/EntityPlayerSP.onGround:Z"))
     private boolean f$a(EntityPlayerSP entityPlayerSP) {
         return 0.f$d.f$a();
-    }
-
-    @Inject(method={"onUpdateWalkingPlayer"}, at={@At(value="RETURN")})
-    private void f$E(CallbackInfo callbackInfo) {
-        kH.f$E().f$E().f$E(new Pf(kF.f$g, 0.f$d.f$B(), 0.f$d.f$e(), 0.f$d.f$K(), 0.f$d.f$e(), 0.f$d.f$E(), 0.f$d.f$a()));
     }
 
     @ModifyVariable(method={"setSprinting"}, at=@At(value="HEAD"))

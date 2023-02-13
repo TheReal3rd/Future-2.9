@@ -32,12 +32,11 @@ public class AA_Tick_Listener extends Listener<TickEvent> {
             while (n2 <= 44) {
                 ItemStack itemStack = mc.player.inventoryContainer.getSlot(n).getStack();
                 if (itemStack != ItemStack.EMPTY && itemStack.getItem() instanceof ItemElytra && itemStack.getCount() == 1 && itemStack.getMaxDamage() - itemStack.getItemDamage() > 5) {
-                    ef.f$E(0.f$d, true);
-                    uD uD2 = 0;
-                    ef.f$E(uD2.f$d, 6, false);
-                    ef.f$E(uD2.f$d, n, true);
-                    ef.f$E(uD2.f$d, n, false);
-                    ef.f$E(uD2.f$d, false);
+                    AutoArmour.setMoving(true);
+                    AutoArmour.move(6,false);
+                    AutoArmour.move(n,true);
+                    AutoArmour.move(n,false);
+                    AutoArmour.setMoving(false);
                 }
                 n2 = n = ((byte)(n + 1));
             }

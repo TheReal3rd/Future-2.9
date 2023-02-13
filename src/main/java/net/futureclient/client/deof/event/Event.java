@@ -11,7 +11,7 @@ public class Event {
         this.cancel = bl;
     }
 
-    //IDK what this does lol.
+    //IDK what this does lol. TODO remove this later.
     public static String f$E(String string) {
         int n;
         StackTraceElement stackTraceElement = new RuntimeException().getStackTrace()[1];

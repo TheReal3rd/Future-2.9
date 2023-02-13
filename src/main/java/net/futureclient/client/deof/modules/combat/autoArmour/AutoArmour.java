@@ -34,8 +34,8 @@ public class AutoArmour extends ModuleStandard {
 
         f$g = new DelayTimer();
         moving = false;
-        ef2.f$E(ef2.f$M, ef2.f$j, ef2.f$b, ef2.f$i);
-        ef2.f$E(new uD(ef2));
+        addSettings(elytraPriority, inventory, delay, priority);
+        addListeners(new AA_Tick_Listener(this));
     }
 
     private boolean doThing(byte by) { // f$E
@@ -154,8 +154,8 @@ public class AutoArmour extends ModuleStandard {
         return AutoArmour.INSTANCE.delay;
     }
 
-    public static void f$E(ef ef2, int n, boolean bl) {
-        ef2.f$E(n, bl);
+    public static void move(int n, boolean bl) {// f$E
+        AutoArmour.INSTANCE.moveItem(n, bl);
     }
 
     public static boolean setMoving(boolean bl) { // f$E

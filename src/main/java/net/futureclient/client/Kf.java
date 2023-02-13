@@ -35,21 +35,6 @@ extends RF {
 }
 package net.futureclient.client;
 
-public enum kF {
-    f$M,
-    f$g;
-
-
-    /*
-     * WARNING - Possible parameter corruption
-     * WARNING - void declaration
-     */
-    private kF() {
-        kF kF2;
-    }
-}
-package net.futureclient.client;
-
 import net.futureclient.client.kF;
 
 public class kf {
