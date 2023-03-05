@@ -14,21 +14,3 @@ extends nD {
         Ue ue;
     }
 }
-package net.futureclient.client;
-
-import net.futureclient.client.RF;
-import net.minecraft.util.MovementInput;
-
-public abstract class ue
-extends RF {
-    private final MovementInput f$d;
-
-    public ue(MovementInput movementInput) {
-        0.f$d = movementInput;
-    }
-
-    public MovementInput f$E() {
-        ue ue2;
-        return ue2.f$d;
-    }
-}

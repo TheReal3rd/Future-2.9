@@ -9,7 +9,7 @@ public abstract class Listener<S extends Event> {
     public abstract void invoke(S var1);
 
     //IDK
-    public static String f$E(String string) {
+    public static String f$E(String string) {//TODO remove this
         int n;
         StackTraceElement stackTraceElement = new RuntimeException().getStackTrace()[1];
         String string2 = new StringBuffer(stackTraceElement.getClassName()).append(stackTraceElement.getMethodName()).toString();

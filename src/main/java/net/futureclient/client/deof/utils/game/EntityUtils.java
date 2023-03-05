@@ -318,7 +318,7 @@ public class EntityUtils {//TODO complete this.
         return "";
     }
 
-    public static double[] f$E(EntityPlayerSP 0, double 0) {
+    public static double[] getMotion(EntityPlayerSP entityPlayerSP, double speed) {//TODO fix this.
         block7: {
             block6: {
                 v0 = 0;

@@ -1,27 +1,5 @@
 package net.futureclient.client;
 
-import net.futureclient.client.ff;
-import net.minecraft.entity.Entity;
-
-public class Cf
-extends ff {
-    private Entity f$d;
-
-    public Entity f$E() {
-        Cf cf;
-        return cf.f$d;
-    }
-
-    public void f$E(Entity entity) {
-        0.f$d = entity;
-    }
-
-    public Cf(Entity entity) {
-        0.f$d = entity;
-    }
-}
-package net.futureclient.client;
-
 public enum CF {
     f$M,
     f$g;

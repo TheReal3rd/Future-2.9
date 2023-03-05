@@ -1,6 +1,19 @@
 package net.futureclient.client.deof.modules.render.freecam;
 
-public class Ob_Listener {
+import net.futureclient.client.deof.event.Listener;
+import net.futureclient.client.deof.event.events.WorldClientEvent;
+
+public class Ob_Listener extends Listener<WorldClientEvent> {
+    public final FreeCam f$d;
+
+    public Ob_Listener(FreeCam rA2) {
+        f$d = rA2;
+    }
+
+    @Override
+    public void invoke(WorldClientEvent de) {
+        f$d.setEnabled(false);
+    }
 }
 /*
 package net.futureclient.client;

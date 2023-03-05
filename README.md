@@ -115,24 +115,24 @@ This one isn't de-obf its fake / joke.
 | PrePostEnum             | kF           | Nah         | Enum to determine whether the event is post or pre.      |
 | SwapEnum                | Se           | Nah         | SwapEnum for AutoCrystal.                                |
 | AutoCrystal             | hF           | Nah         | AutoCrystal Module                                       |
-| Content                 | Content      | Nah         | Content                                                  |
-| Content                 | Content      | Nah         | Content                                                  |
-| Content                 | Content      | Nah         | Content                                                  |
-| Content                 | Content      | Nah         | Content                                                  |
-| Content                 | Content      | Nah         | Content                                                  |
-| Content                 | Content      | Nah         | Content                                                  |
-| Content                 | Content      | Nah         | Content                                                  |
-| Content                 | Content      | Nah         | Content                                                  |
-| Content                 | Content      | Nah         | Content                                                  |
-| Content                 | Content      | Nah         | Content                                                  |
-| Content                 | Content      | Nah         | Content                                                  |
-| Content                 | Content      | Nah         | Content                                                  |
-| Content                 | Content      | Nah         | Content                                                  |
-| Content                 | Content      | Nah         | Content                                                  |
-| Content                 | Content      | Nah         | Content                                                  |
-| Content                 | Content      | Nah         | Content                                                  |
-| Content                 | Content      | Nah         | Content                                                  |
-| Content                 | Content      | Nah         | Content                                                  |
+| Freecam                 | rA           | Nah         | Freecam Module                                           |
+| FreecamEntity           | ab           | Nah         | Freecam Entity class                                     |
+| Rb_Listener             | Rb           | Nah         | Freecam MoveEvent Listener                               |
+| ue_Movement_Event       | ue           | Nah         | MovementInput Event                                      |
+| MovementInputEvent      | PD           | Nah         | MovementInput Event inhertiance of ue                    |
+| bc_Listener             | bc           | Nah         | Freecam Listener for PD                                  |
+| Fe_Key_Event            | Fe           | Nah         | Keypress event.                                          |
+| Cf_Uknown_Event         | Cf           | Nah         | Unknown Event                                            |
+| ff_Unknown_Event        | ff           | Nah         | Unknown Event                                            |
+| InteractEnum            | pb           | Nah         | Freecam Interaction Enum Setting.                        |
+| ub_Listener             | ub           | Nah         | Freecam Event listener.                                  |
+| nA_Listener             | nA           | Nah         | Freecam Event listener                                   |
+| RayTraceEvent           | Lg           | Nah         | RayTrace Event                                           |
+| Ob_Listener             | Ob           | Nah         | Freecam WorldClientEvent Listener                        |
+| RenderHandEvent         | Dg           | Nah         | Unknown Event                                            |
+| Pb_Listener             | Pb           | Nah         | Freecam RenderHandEvent listener.                        |
+| SetupTerrainEvent       | nE           | Nah         | Setup terrain event.                                     |
+| qA_Listener             | qA           | Nah         | Freecam SetupTerrainEvent.                               |
 | Content                 | Content      | Nah         | Content                                                  |
 | Content                 | Content      | Nah         | Content                                                  |
 | Content                 | Content      | Nah         | Content                                                  |

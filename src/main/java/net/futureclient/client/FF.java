@@ -93,13 +93,3 @@ extends Kf {
         return ff.f$g;
     }
 }
-package net.futureclient.client;
-
-import net.futureclient.client.RF;
-
-public abstract class ff
-extends RF {
-    public ff() {
-        ff ff2;
-    }
-}

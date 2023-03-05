@@ -1,10 +1,120 @@
 package net.futureclient.client.deof.modules.render.freecam;
 
-import net.futureclient.client.*;
-import net.minecraft.client.Minecraft;
+import net.futureclient.client.deof.modules.ModuleStandard;
+import net.futureclient.client.deof.modules.render.freecam.utils.FreecamEntity;
+import net.futureclient.client.deof.settings.EnumSetting;
+import net.futureclient.client.deof.settings.NumberSetting;
+import net.futureclient.client.deof.utils.enums.CategoryEnum;
+import net.futureclient.client.deof.modules.render.freecam.utils.InteractEnum;
 import net.minecraft.entity.Entity;
+import net.minecraft.util.MovementInput;
+import net.minecraft.util.MovementInputFromOptions;
 
-public class FreeCam {
+public class FreeCam extends ModuleStandard {
+    private Entity playerEntity;// OG f$d
+    private final NumberSetting f$i;// OG f$i
+    private static MovementInput movementInput; // OG f$j
+    private final EnumSetting<InteractEnum> f$M;// OG f$M
+    private FreecamEntity camera;// OG f$g
+
+    static {
+        movementInput = new MovementInput();
+    }
+
+    public FreecamEntity getCamera() {
+        return camera;
+    }
+
+    public static Entity setEntity(FreeCam rA2, Entity entity) {
+        rA2.playerEntity = entity;
+        return rA2.playerEntity;
+    }
+
+    public static MovementInput getMovementInput() {
+        return movementInput;
+    }
+
+    public static NumberSetting getSpeed(FreeCam rA2) {
+        return rA2.f$i;
+    }
+
+    @Override
+    public void toggle() {
+        if (mc.world == null || mc.player == null) {
+            this.setEnabled(false);
+            return;
+        }
+        FreecamEntity freeCamEntity = new FreecamEntity(mc.world);
+        freeCamEntity.setHealth(mc.player.getHealth());
+        freeCamEntity.setAbsorptionAmount(mc.player.getAbsorptionAmount());
+        freeCamEntity.setPrimaryHand(mc.player.getPrimaryHand());
+        freeCamEntity.setEntityBoundingBox(mc.player.getEntityBoundingBox());
+        freeCamEntity.posX = mc.player.posX;
+        freeCamEntity.posY = mc.player.posY;
+        freeCamEntity.posZ = mc.player.posZ;
+        freeCamEntity.prevPosX = mc.player.prevPosX;
+        freeCamEntity.prevPosY = mc.player.prevPosY;
+        freeCamEntity.prevPosZ = mc.player.prevPosZ;
+        freeCamEntity.lastTickPosX = mc.player.lastTickPosX;
+        freeCamEntity.lastTickPosY = mc.player.lastTickPosY;
+        freeCamEntity.lastTickPosZ = mc.player.lastTickPosZ;
+        freeCamEntity.prevRotationYaw = freeCamEntity.rotationYaw = mc.player.rotationYaw;
+        freeCamEntity.prevRotationPitch = freeCamEntity.rotationPitch = mc.player.rotationPitch;
+        freeCamEntity.prevRotationYawHead = freeCamEntity.rotationYawHead = mc.player.rotationYawHead;
+        freeCamEntity.inventory = mc.player.inventory;
+        freeCamEntity.inventoryContainer = mc.player.inventoryContainer;
+        freeCamEntity.capabilities = mc.player.capabilities;
+        freeCamEntity.hurtTime = mc.player.hurtTime;
+        freeCamEntity.maxHurtTime = mc.player.maxHurtTime;
+        freeCamEntity.attackedAtYaw = mc.player.attackedAtYaw;
+        MovementInputFromOptions movementInputFromOptions = new MovementInputFromOptions(mc.gameSettings);
+        movementInputFromOptions.updatePlayerMoveState();
+        movementInput = movementInputFromOptions;
+        playerEntity = mc.getRenderViewEntity();
+        camera = freeCamEntity;
+        mc.setRenderViewEntity(camera);
+        super.toggle();
+    }
+
+    public FreeCam() {
+        super("Freecam", new String[]{"Freecam", "Reecam", "camera"}, false, -3217280, CategoryEnum.RENDER);
+        f$i = new NumberSetting(1.0, 0.0, 2.0, 0.1, "Speed", "camspeed");
+        f$M = new EnumSetting<>(InteractEnum.f$M, "Interact", "interact", "trace", "raytrace", "rt", "t", "i");
+        addSettings(f$i, f$M);
+        addListeners(
+                new Rb_Listener(this),
+                new bc_Listener(this),
+                new ub_Listener(this),
+                new nA_Listener(this),
+                new Ob_Listener(this),
+                new Pb_Listener(this),
+                new qA_Listener(this),
+                new MC_Listener(this)
+        );
+        this.setEnabled(false);
+    }
+
+    @Override
+    public void unSubListeners() {
+        super.unSubListeners();
+        if (mc.player != null) {
+            if (mc.player.movementInput.getClass() == movementInput.getClass()) {
+                MovementInputFromOptions movementInputFromOptions = new MovementInputFromOptions(mc.gameSettings);
+                movementInputFromOptions.updatePlayerMoveState();
+                mc.player.movementInput = movementInputFromOptions;
+            }
+            mc.setRenderViewEntity(playerEntity);
+        }
+        camera = null;
+    }
+
+    public static FreecamEntity getCamera(FreeCam rA2) {
+        return rA2.camera;
+    }
+
+    public static EnumSetting getInteract(FreeCam rA2) {
+        return rA2.f$M;
+    }
 }
 /*
 package net.futureclient.client;

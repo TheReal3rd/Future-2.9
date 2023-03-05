@@ -1,8 +1,8 @@
 package net.futureclient.loader.mixin.common.render;
 
 import net.futureclient.client.VI;
-import net.futureclient.client.kH;
-import net.futureclient.client.nE;
+import net.futureclient.client.deof.FutureClient;
+import net.futureclient.client.deof.event.events.SetupTerrainEvent;
 import net.minecraft.client.renderer.RenderGlobal;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -18,14 +18,14 @@ public abstract class MixinRenderGlobal {
 
     @Inject(method={"makeEntityOutlineShader"}, at={@At(value="HEAD")})
     private void f$E(CallbackInfo callbackInfo) {
-        VI.f$A();
+        VI.f$A();//TODO
     }
 
     @ModifyVariable(method={"setupTerrain"}, at=@At(value="HEAD"))
     private boolean f$E(boolean bl) {
-        nE nE2 = new nE();
-        kH.f$E().f$E().f$E(nE2);
-        if (nE2.f$E()) {
+        SetupTerrainEvent nE2 = new SetupTerrainEvent();
+        FutureClient.getINSTANCE().getEventManager().invoke(nE2);// kH.f$E().f$E().f$E(nE2);
+        if (nE2.isCancelled()) {
             return true;
         }
         return bl;

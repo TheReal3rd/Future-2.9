@@ -1,6 +1,19 @@
 package net.futureclient.client.deof.modules.render.freecam;
 
-public class MC_Listener {
+import net.futureclient.client.deof.event.Listener;
+import net.futureclient.client.deof.event.events.EntityRendererOrientEvent;
+
+public class MC_Listener extends Listener<EntityRendererOrientEvent> {
+    public final FreeCam f$d;
+
+    public MC_Listener(FreeCam rA2) {
+        f$d = rA2;
+    }
+
+    @Override
+    public void invoke(EntityRendererOrientEvent wd) {
+        wd.setCancel(true);
+    }
 }
 /*
 package net.futureclient.client;

@@ -1,6 +1,19 @@
 package net.futureclient.client.deof.modules.render.freecam;
 
-public class qA_Listener {
+import net.futureclient.client.deof.event.Listener;
+import net.futureclient.client.deof.event.events.SetupTerrainEvent;
+
+public class qA_Listener extends Listener<SetupTerrainEvent> {
+    public final FreeCam f$d;
+
+    public qA_Listener(FreeCam rA2) {
+        f$d = rA2;
+    }
+
+    @Override
+    public void invoke(SetupTerrainEvent nE2) {
+        nE2.setCancel(true);
+    }
 }
 /*
 package net.futureclient.client;

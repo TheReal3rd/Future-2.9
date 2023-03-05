@@ -1,6 +1,25 @@
 package net.futureclient.client.deof.modules.render.freecam;
 
-public class bc_Listener {
+import net.futureclient.client.deof.event.Listener;
+import net.futureclient.client.deof.event.events.MovementInputEvent;
+import net.minecraft.client.Minecraft;
+import net.minecraft.util.MovementInputFromOptions;
+
+public class bc_Listener extends Listener<MovementInputEvent> {
+    private final static Minecraft mc = Minecraft.getMinecraft();
+    public final FreeCam f$d;
+
+    public bc_Listener(FreeCam rA2) {
+        f$d = rA2;
+    }
+
+    @Override
+    public void invoke(MovementInputEvent pD) {
+        if (mc.player.movementInput.getClass() == MovementInputFromOptions.class) {
+            mc.player.movementInput = FreeCam.getMovementInput();
+        }
+    }
+
 }
 /*
 package net.futureclient.client;

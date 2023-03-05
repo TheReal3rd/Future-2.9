@@ -1,6 +1,25 @@
 package net.futureclient.client.deof.modules.render.freecam;
 
-public class nA_Listener {
+import net.futureclient.client.deof.event.Listener;
+import net.futureclient.client.deof.event.events.RayTraceEvent;
+import net.minecraft.client.Minecraft;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.RayTraceResult;
+
+public class nA_Listener extends Listener<RayTraceEvent> {
+    public final FreeCam f$d;
+
+    public nA_Listener(FreeCam rA2) {
+        f$d = rA2;
+    }
+
+    @Override
+    public void invoke(RayTraceEvent lg) {
+        RayTraceResult rayTraceResult = lg.getRayTraceResult();
+        if (rayTraceResult != null && rayTraceResult.typeOfHit == RayTraceResult.Type.ENTITY && rayTraceResult.entityHit == Minecraft.getMinecraft().player) {
+            lg.setRayTraceResult(new RayTraceResult(RayTraceResult.Type.MISS, rayTraceResult.hitVec, null, new BlockPos(rayTraceResult.hitVec)));
+        }
+    }
 }
 /*
 package net.futureclient.client;

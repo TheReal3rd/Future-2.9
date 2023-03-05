@@ -304,16 +304,6 @@ package net.futureclient.client;
 
 import net.futureclient.client.RF;
 
-public class Dg
-extends RF {
-    public Dg() {
-        Dg dg;
-    }
-}
-package net.futureclient.client;
-
-import net.futureclient.client.RF;
-
 public final class dg
 extends RF {
     public dg() {

@@ -18,13 +18,4 @@ extends RF {
         ne ne2;
     }
 }
-package net.futureclient.client;
 
-import net.futureclient.client.RF;
-
-public final class nE
-extends RF {
-    public nE() {
-        nE nE2;
-    }
-}

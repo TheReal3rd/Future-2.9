@@ -1,6 +1,19 @@
 package net.futureclient.client.deof.modules.render.freecam;
 
-public class Pb_Listener {
+import net.futureclient.client.deof.event.Listener;
+import net.futureclient.client.deof.event.events.RenderHandEvent;
+
+public class Pb_Listener extends Listener<RenderHandEvent> {
+    public final FreeCam f$d;
+
+    public Pb_Listener(FreeCam rA2) {
+        f$d = rA2;
+    }
+
+    @Override
+    public void invoke(RenderHandEvent dg) {
+        dg.setCancel(true);
+    }
 }
 /*
 package net.futureclient.client;

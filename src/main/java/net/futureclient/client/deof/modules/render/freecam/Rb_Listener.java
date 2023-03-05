@@ -1,6 +1,53 @@
 package net.futureclient.client.deof.modules.render.freecam;
 
-public class Rb_Listener {
+import net.futureclient.client.deof.event.Listener;
+import net.futureclient.client.deof.event.events.MoveEvent;
+import net.futureclient.client.deof.utils.game.EntityUtils;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiGameOver;
+import net.minecraft.util.math.MathHelper;
+
+public class Rb_Listener extends Listener<MoveEvent> {
+    private final Minecraft mc;
+    public final FreeCam f$d;
+
+    public Rb_Listener(FreeCam rA2) {
+        f$d = rA2;
+        mc = Minecraft.getMinecraft();
+    }
+
+    @Override
+    public void invoke(MoveEvent ee) {
+        if (mc.currentScreen instanceof GuiGameOver) {
+            f$d.setEnabled(false);
+            return;
+        }
+        FreeCam.getMovementInput().updatePlayerMoveState();
+        f$d.getCamera().setHealth(mc.player.getHealth());
+        f$d.getCamera().setAbsorptionAmount(mc.player.getAbsorptionAmount());
+        f$d.getCamera().setPrimaryHand(mc.player.getPrimaryHand());
+        f$d.getCamera().prevPosX = f$d.getCamera().lastTickPosX = f$d.getCamera().posX;
+        f$d.getCamera().prevPosY = f$d.getCamera().lastTickPosY = f$d.getCamera().posY;
+        f$d.getCamera().prevPosZ = f$d.getCamera().lastTickPosZ = f$d.getCamera().posZ;
+        double[] dArray = EntityUtils.getMotion(f$d.getCamera(), FreeCam.getSpeed(f$d).getValue().doubleValue());
+        f$d.getCamera().motionX = dArray[0];
+        f$d.getCamera().motionY = f$d.getCamera().movementInput.jump ? FreeCam.getSpeed(f$d).getValue().doubleValue() : (f$d.getCamera().movementInput.sneak ? -FreeCam.getSpeed(f$d).getValue().doubleValue() : 0.0);
+        f$d.getCamera().motionZ = dArray[1];
+        f$d.getCamera().setEntityBoundingBox(f$d.getCamera().getEntityBoundingBox().offset(f$d.getCamera().motionX, f$d.getCamera().motionY, f$d.getCamera().motionZ));
+        f$d.getCamera().resetPositionToBB();
+        f$d.getCamera().chunkCoordX = MathHelper.floor((f$d.getCamera().posX / 16.0));
+        f$d.getCamera().chunkCoordZ = MathHelper.floor((f$d.getCamera().posZ / 16.0));
+        f$d.getCamera().inventory = mc.player.inventory;
+        f$d.getCamera().inventoryContainer = mc.player.inventoryContainer;
+        f$d.getCamera().capabilities = mc.player.capabilities;
+        f$d.getCamera().hurtTime = mc.player.hurtTime;
+        f$d.getCamera().maxHurtTime = mc.player.maxHurtTime;
+        f$d.getCamera().attackedAtYaw = mc.player.attackedAtYaw;
+        if (mc.getRenderViewEntity() != f$d.getCamera()) {
+            FreeCam.setEntity(f$d, mc.getRenderViewEntity());
+            mc.setRenderViewEntity(f$d.getCamera());
+        }
+    }
 }
 /*
 package net.futureclient.client;

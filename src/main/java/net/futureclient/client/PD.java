@@ -1,16 +1,5 @@
 package net.futureclient.client;
 
-import net.futureclient.client.ue;
-import net.minecraft.util.MovementInput;
-
-public class PD
-extends ue {
-    public PD(MovementInput movementInput) {
-        super(movementInput);
-    }
-}
-package net.futureclient.client;
-
 import net.futureclient.client.RF;
 import net.minecraft.entity.item.EntityItem;
 

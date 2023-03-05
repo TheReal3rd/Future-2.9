@@ -1,11 +1,12 @@
 package net.futureclient.loader.mixin.common.render.entity;
 
 import net.futureclient.client.Cf;
-import net.futureclient.client.Dg;
 import net.futureclient.client.Lg;
 import net.futureclient.client.RD;
-import net.futureclient.client.Wd;
 import net.futureclient.client.YE;
+import net.futureclient.client.deof.FutureClient;
+import net.futureclient.client.deof.event.events.EntityRendererOrientEvent;
+import net.futureclient.client.deof.event.events.RenderHandEvent;
 import net.futureclient.client.fg;
 import net.futureclient.client.gF;
 import net.futureclient.client.i;
@@ -87,9 +88,9 @@ implements i {
 
     @Inject(method={"renderHand"}, at={@At(value="HEAD")}, cancellable=true)
     private void f$B(CallbackInfo callbackInfo) {
-        Dg dg = new Dg();
-        kH.f$E().f$E().f$E(dg);
-        if (dg.f$E()) {
+        RenderHandEvent dg = new RenderHandEvent();
+        FutureClient.getINSTANCE().getEventManager().invoke(dg); //kH.f$E().f$E().f$E(dg);
+        if (dg.isCancelled()) {
             callbackInfo.cancel();
         }
     }
@@ -104,10 +105,10 @@ implements i {
 
     @Inject(method={"orientCamera"}, at={@At(value="HEAD")})
     private void f$E(float f, CallbackInfo callbackInfo) {
-        Wd wd = new Wd(3.5f);
-        kH.f$E().f$E().f$E(wd);
-        0.f$M = wd.f$E();
-        0.f$g = wd.f$E();
+        EntityRendererOrientEvent wd = new EntityRendererOrientEvent(3.5f);
+        FutureClient.getINSTANCE().getEventManager().invoke(wd);//kH.f$E().f$E().f$E(wd);
+        f$M = wd.isCancelled();
+        f$g = wd.getaFloat();
     }
 
     @Redirect(method={"orientCamera"}, at=@At(value="INVOKE", target="net/minecraft/client/multiplayer/WorldClient.rayTraceBlocks(Lnet/minecraft/util/math/Vec3d;Lnet/minecraft/util/math/Vec3d;)Lnet/minecraft/util/math/RayTraceResult;"))
