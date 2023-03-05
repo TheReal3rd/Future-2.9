@@ -40,114 +40,114 @@ Semi De-Obfuscated Source: https://github.com/adddison/minecraft-client-archive/
 Obfuscated Source: https://github.com/MrCreepyYT/Future-2.12-De-Obf-Crack
 This one isn't de-obf its fake / joke.
 
-| Renamed Class           | Obfuscated 1 | Semi Deof 1 | Description                                              |
-|-------------------------|--------------|-------------|----------------------------------------------------------|
-| FutureClient            | kH           | Nah         | Main class that holds managers.                          |
-| ModuleStandard          | Ba           | Nah         | Base class for Modules.                                  |
-| ModuleManager           | Hf           | Nah         | Class that Manages Modules.                              |
-| ModuleBase              | ma           | Nah         | Base class for Modules.                                  |
-| Listener                | Ha           | Nah         | Where Events are invoked.                                |
-| PacketEvent             | Ye           | Nah         | PacketEvent.                                             |
-| IString                 | F            | Nah         | Unknown Interface with single method used in ig_Unknown. |
-| CommandBase             | GA           | Nah         | Base Class for Commands.                                 |
-| CommandManager          | AG           | Nah         | Command Manager.                                         |
-| FutureLogger            | La           | Nah         | Logging Utils.                                           |
-| ILogger                 | E            | Nah         | Interface for FutureLogger.                              |
-| DelayTimer              | gG           | Nah         | System Time delay class.                                 |
-| EntityUtils             | Pg           | Nah         | Entity interaction utilities.                            |
-| ObjectList              | QE           | Nah         | Class that allows list to be created?                    |
-| TPSCalcListener         | VG           | Nah         | Listens to events to Calc TPS.                           |
-| TPSCalc                 | RG           | Nah         | Holds and Calcs TPS data / values.                       |
-| ShutdownListener        | Vg           | Nah         | Listens to when the Games is closing down.               |
-| CategoryEnum            | JD           | Nah         | Enum Class that holds Modules Categories.                |
-| SettingsBase            | z            | Nah         | Base class for all settings.                             |
-| EnumSetting             | ka           | Nah         | Enum Setting class.                                      |
-| BlockList               | U            | Nah         | MC Block list setting.                                   |
-| BlockStateList          | ha           | Nah         | MC IBlockState list setting.                             |
-| ItemList                | n            | Nah         | MC Item list setting.                                    |
-| ListSetting             | O            | Nah         | Abstract list base class.                                |
-| ig_Unknown              | ig           | Nah         | Unknown Class used in ModulesStandard                    |
-| CFontDraw               | fG           | Nah         | Font class used in hud.                                  |
-| BH_Font_Object          | BH           | Nah         | An object used to hold data for font rendering.          |
-| Event                   | RF           | Nah         | Event Base class.                                        |
-| EventManager            | IH           | Nah         | Manages and executes events.                             |
-| IEventManager           | W            | Nah         | Interface for EventManager.                              |
-| Af_Unknown_Event        | AF           | Nah         | Unknown Event.                                           |
-| MoveEvent               | Ee           | Nah         | MoveEvent for player movement events.                    |
-| ShutdownEvent           | *Lost*       | Nah         | Event executed when client is shutting down.             |
-| WorldClientEvent        | De           | Nah         | World events.                                            |
-| Hud                     | gF           | Nah         | Hud Module.                                              |
-| ScaledResEvent          | Zd           | Nah         | ScaledResolution Event.                                  |
-| NumberSetting           | s            | Nah         | Setting type used to hold Number based settings.         |
-| Colours                 | wD           | Nah         | Colours is a modules that holds colour settings.         |
-| ColourUtils             | vH           | Nah         | Colour Utils.                                            |
-| AE_TimeTask             | AE           | Nah         | Timed Task that for HUD module.                          |
-| InputEvent              | kE           | Nah         | Input event for mouse and keyboard.                      |
-| KeybindListener         | cF           | Nah         | Keybind listener for Modulemanager.                      |
-| MacroManager            | lf           | Nah         | Manager for macros.                                      |
-| MacroObject             | lg           | Nah         | MacroObject holds data for Macros.                       |
-| MacroListener           | BD           | Nah         | MacroListener used to listen for key presses.            |
-| MacroFile               | nf           | Nah         | MacroFile saving.                                        |
-| FileObject              | Ib           | Nah         | File Saving utils.                                       |
-| ILoad                   | j            | Nah         | Interface for load.                                      |
-| ISave                   | g            | Nah         | Interface for save.                                      |
-| CommandFile             | Vi           | Nah         | File saving for CommandManager.                          |
-| AltManager              | xI           | Nah         | Manager that handles login and outs of Alts.             |
-| AltObject               | ph           | Nah         | Alt Data object.                                         |
-| AltTypeEnum             | jG           | Nah         | AltType alt type enum.                                   |
-| AltJson                 | Aj           | Nah         | Json related class for AltManager.                       |
-| TickEvent               | ME           | Nah         | Event trigger every in-game tick.                        |
-| AntiBot                 | mF           | Nah         | AntiBot Module that filters bots from players.           |
-| AB_Tick_Listener        | cE           | Nah         | AntiBot Tick Listener                                    |
-| GUIScreenEvent          | Wf           | Nah         | Event Triggered when GUIScreen is changed.               |
-| AB_GUIScreen_Listener   | BF           | Nah         | AntiBot GUIScreenEvent Listener.                         |
-| AB_WorldClient_Listener | QF           | Nah         | AntiBot WorldClient Listener.                            |
-| PacketTwoEvent          | IE           | Nah         | PacketEvent (Probably delete later.)                     |
-| PacketThreeEvent        | jf           | Nah         | PacketEvent (Probably delete later.)                     |
-| AB_Packet_Listener      | wF           | Nah         | AntiBot Packet Listener                                  |
-| DelayTimer              | Bh           | Nah         | AutoArmour Delay class.                                  |
-| PriorityEnum            | yf           | Nah         | AutoArmour Priority enum for settings.                   |
-| AutoArmour              | ef           | Nah         | AutoArmour Module.                                       |
-| AA_Tick_Listener        | uD           | Nah         | AutoArmour TicEvent Listener                             |
-| AutoTotem               | yE           | Nah         | AutoTotem Module                                         |
-| AutoBowRelease          | Le           | Nah         | AutoBowRelease Module                                    |
-| RE_Listener             | RE           | Nah         | AutoBowRelease UpdateWalkingEvent Listener.              |
-| PrePostEnum             | kF           | Nah         | Enum to determine whether the event is post or pre.      |
-| SwapEnum                | Se           | Nah         | SwapEnum for AutoCrystal.                                |
-| AutoCrystal             | hF           | Nah         | AutoCrystal Module                                       |
-| Freecam                 | rA           | Nah         | Freecam Module                                           |
-| FreecamEntity           | ab           | Nah         | Freecam Entity class                                     |
-| Rb_Listener             | Rb           | Nah         | Freecam MoveEvent Listener                               |
-| ue_Movement_Event       | ue           | Nah         | MovementInput Event                                      |
-| MovementInputEvent      | PD           | Nah         | MovementInput Event inhertiance of ue                    |
-| bc_Listener             | bc           | Nah         | Freecam Listener for PD                                  |
-| Fe_Key_Event            | Fe           | Nah         | Keypress event.                                          |
-| Cf_Uknown_Event         | Cf           | Nah         | Unknown Event                                            |
-| ff_Unknown_Event        | ff           | Nah         | Unknown Event                                            |
-| InteractEnum            | pb           | Nah         | Freecam Interaction Enum Setting.                        |
-| ub_Listener             | ub           | Nah         | Freecam Event listener.                                  |
-| nA_Listener             | nA           | Nah         | Freecam Event listener                                   |
-| RayTraceEvent           | Lg           | Nah         | RayTrace Event                                           |
-| Ob_Listener             | Ob           | Nah         | Freecam WorldClientEvent Listener                        |
-| RenderHandEvent         | Dg           | Nah         | Unknown Event                                            |
-| Pb_Listener             | Pb           | Nah         | Freecam RenderHandEvent listener.                        |
-| SetupTerrainEvent       | nE           | Nah         | Setup terrain event.                                     |
-| qA_Listener             | qA           | Nah         | Freecam SetupTerrainEvent.                               |
-| Content                 | Content      | Nah         | Content                                                  |
-| Content                 | Content      | Nah         | Content                                                  |
-| Content                 | Content      | Nah         | Content                                                  |
-| Content                 | Content      | Nah         | Content                                                  |
-| Content                 | Content      | Nah         | Content                                                  |
-| Content                 | Content      | Nah         | Content                                                  |
-| Content                 | Content      | Nah         | Content                                                  |
-| Content                 | Content      | Nah         | Content                                                  |
-| Content                 | Content      | Nah         | Content                                                  |
-| Content                 | Content      | Nah         | Content                                                  |
-| Content                 | Content      | Nah         | Content                                                  |
-| Content                 | Content      | Nah         | Content                                                  |
-| Content                 | Content      | Nah         | Content                                                  |
-| Content                 | Content      | Nah         | Content                                                  |
-| Content                 | Content      | Nah         | Content                                                  |
-| Content                 | Content      | Nah         | Content                                                  |
-| Content                 | Content      | Nah         | Content                                                  |
-| Content                 | Content      | Nah         | Content                                                  |
+| Renamed Class             | Obfuscated 1 | Semi Deof 1 | Description                                              |
+|---------------------------|--------------|-------------|----------------------------------------------------------|
+| FutureClient              | kH           | Nah         | Main class that holds managers.                          |
+| ModuleStandard            | Ba           | Nah         | Base class for Modules.                                  |
+| ModuleManager             | Hf           | Nah         | Class that Manages Modules.                              |
+| ModuleBase                | ma           | Nah         | Base class for Modules.                                  |
+| Listener                  | Ha           | Nah         | Where Events are invoked.                                |
+| PacketEvent               | Ye           | Nah         | PacketEvent.                                             |
+| IString                   | F            | Nah         | Unknown Interface with single method used in ig_Unknown. |
+| CommandBase               | GA           | Nah         | Base Class for Commands.                                 |
+| CommandManager            | AG           | Nah         | Command Manager.                                         |
+| FutureLogger              | La           | Nah         | Logging Utils.                                           |
+| ILogger                   | E            | Nah         | Interface for FutureLogger.                              |
+| DelayTimer                | gG           | Nah         | System Time delay class.                                 |
+| EntityUtils               | Pg           | Nah         | Entity interaction utilities.                            |
+| ObjectList                | QE           | Nah         | Class that allows list to be created?                    |
+| TPSCalcListener           | VG           | Nah         | Listens to events to Calc TPS.                           |
+| TPSCalc                   | RG           | Nah         | Holds and Calcs TPS data / values.                       |
+| ShutdownListener          | Vg           | Nah         | Listens to when the Games is closing down.               |
+| CategoryEnum              | JD           | Nah         | Enum Class that holds Modules Categories.                |
+| SettingsBase              | z            | Nah         | Base class for all settings.                             |
+| EnumSetting               | ka           | Nah         | Enum Setting class.                                      |
+| BlockList                 | U            | Nah         | MC Block list setting.                                   |
+| BlockStateList            | ha           | Nah         | MC IBlockState list setting.                             |
+| ItemList                  | n            | Nah         | MC Item list setting.                                    |
+| ListSetting               | O            | Nah         | Abstract list base class.                                |
+| ig_Unknown                | ig           | Nah         | Unknown Class used in ModulesStandard                    |
+| CFontDraw                 | fG           | Nah         | Font class used in hud.                                  |
+| BH_Font_Object            | BH           | Nah         | An object used to hold data for font rendering.          |
+| Event                     | RF           | Nah         | Event Base class.                                        |
+| EventManager              | IH           | Nah         | Manages and executes events.                             |
+| IEventManager             | W            | Nah         | Interface for EventManager.                              |
+| Af_Unknown_Event          | AF           | Nah         | Unknown Event.                                           |
+| MoveEvent                 | Ee           | Nah         | MoveEvent for player movement events.                    |
+| ShutdownEvent             | *Lost*       | Nah         | Event executed when client is shutting down.             |
+| WorldClientEvent          | De           | Nah         | World events.                                            |
+| Hud                       | gF           | Nah         | Hud Module.                                              |
+| ScaledResEvent            | Zd           | Nah         | ScaledResolution Event.                                  |
+| NumberSetting             | s            | Nah         | Setting type used to hold Number based settings.         |
+| Colours                   | wD           | Nah         | Colours is a modules that holds colour settings.         |
+| ColourUtils               | vH           | Nah         | Colour Utils.                                            |
+| AE_TimeTask               | AE           | Nah         | Timed Task that for HUD module.                          |
+| InputEvent                | kE           | Nah         | Input event for mouse and keyboard.                      |
+| KeybindListener           | cF           | Nah         | Keybind listener for Modulemanager.                      |
+| MacroManager              | lf           | Nah         | Manager for macros.                                      |
+| MacroObject               | lg           | Nah         | MacroObject holds data for Macros.                       |
+| MacroListener             | BD           | Nah         | MacroListener used to listen for key presses.            |
+| MacroFile                 | nf           | Nah         | MacroFile saving.                                        |
+| FileObject                | Ib           | Nah         | File Saving utils.                                       |
+| ILoad                     | j            | Nah         | Interface for load.                                      |
+| ISave                     | g            | Nah         | Interface for save.                                      |
+| CommandFile               | Vi           | Nah         | File saving for CommandManager.                          |
+| AltManager                | xI           | Nah         | Manager that handles login and outs of Alts.             |
+| AltObject                 | ph           | Nah         | Alt Data object.                                         |
+| AltTypeEnum               | jG           | Nah         | AltType alt type enum.                                   |
+| AltJson                   | Aj           | Nah         | Json related class for AltManager.                       |
+| TickEvent                 | ME           | Nah         | Event trigger every in-game tick.                        |
+| AntiBot                   | mF           | Nah         | AntiBot Module that filters bots from players.           |
+| AB_Tick_Listener          | cE           | Nah         | AntiBot Tick Listener                                    |
+| GUIScreenEvent            | Wf           | Nah         | Event Triggered when GUIScreen is changed.               |
+| AB_GUIScreen_Listener     | BF           | Nah         | AntiBot GUIScreenEvent Listener.                         |
+| AB_WorldClient_Listener   | QF           | Nah         | AntiBot WorldClient Listener.                            |
+| PacketTwoEvent            | IE           | Nah         | PacketEvent (Probably delete later.)                     |
+| PacketThreeEvent          | jf           | Nah         | PacketEvent (Probably delete later.)                     |
+| AB_Packet_Listener        | wF           | Nah         | AntiBot Packet Listener                                  |
+| DelayTimer                | Bh           | Nah         | AutoArmour Delay class.                                  |
+| PriorityEnum              | yf           | Nah         | AutoArmour Priority enum for settings.                   |
+| AutoArmour                | ef           | Nah         | AutoArmour Module.                                       |
+| AA_Tick_Listener          | uD           | Nah         | AutoArmour TicEvent Listener                             |
+| AutoTotem                 | yE           | Nah         | AutoTotem Module                                         |
+| AutoBowRelease            | Le           | Nah         | AutoBowRelease Module                                    |
+| RE_Listener               | RE           | Nah         | AutoBowRelease UpdateWalkingEvent Listener.              |
+| PrePostEnum               | kF           | Nah         | Enum to determine whether the event is post or pre.      |
+| SwapEnum                  | Se           | Nah         | SwapEnum for AutoCrystal.                                |
+| AutoCrystal               | hF           | Nah         | AutoCrystal Module                                       |
+| Freecam                   | rA           | Nah         | Freecam Module                                           |
+| FreecamEntity             | ab           | Nah         | Freecam Entity class                                     |
+| Rb_Listener               | Rb           | Nah         | Freecam MoveEvent Listener                               |
+| ue_Movement_Event         | ue           | Nah         | MovementInput Event                                      |
+| MovementInputEvent        | PD           | Nah         | MovementInput Event inhertiance of ue                    |
+| bc_Listener               | bc           | Nah         | Freecam Listener for PD                                  |
+| Fe_Key_Event              | Fe           | Nah         | Keypress event.                                          |
+| Cf_Uknown_Event           | Cf           | Nah         | Unknown Event                                            |
+| ff_Unknown_Event          | ff           | Nah         | Unknown Event                                            |
+| InteractEnum              | pb           | Nah         | Freecam Interaction Enum Setting.                        |
+| ub_Listener               | ub           | Nah         | Freecam Event listener.                                  |
+| nA_Listener               | nA           | Nah         | Freecam Event listener                                   |
+| RayTraceEvent             | Lg           | Nah         | RayTrace Event                                           |
+| Ob_Listener               | Ob           | Nah         | Freecam WorldClientEvent Listener                        |
+| RenderHandEvent           | Dg           | Nah         | Unknown Event                                            |
+| Pb_Listener               | Pb           | Nah         | Freecam RenderHandEvent listener.                        |
+| SetupTerrainEvent         | nE           | Nah         | Setup terrain event.                                     |
+| qA_Listener               | qA           | Nah         | Freecam SetupTerrainEvent.                               |
+| EntityRendererOrientEvent | Wd           | Nah         | Content                                                  |
+| MC_Listener               | MC           | Nah         | Freecam Event listener EntityRendererOrientEvent.        |
+| Content                   | Content      | Nah         | Content                                                  |
+| Content                   | Content      | Nah         | Content                                                  |
+| Content                   | Content      | Nah         | Content                                                  |
+| Content                   | Content      | Nah         | Content                                                  |
+| Content                   | Content      | Nah         | Content                                                  |
+| Content                   | Content      | Nah         | Content                                                  |
+| Content                   | Content      | Nah         | Content                                                  |
+| Content                   | Content      | Nah         | Content                                                  |
+| Content                   | Content      | Nah         | Content                                                  |
+| Content                   | Content      | Nah         | Content                                                  |
+| Content                   | Content      | Nah         | Content                                                  |
+| Content                   | Content      | Nah         | Content                                                  |
+| Content                   | Content      | Nah         | Content                                                  |
+| Content                   | Content      | Nah         | Content                                                  |
+| Content                   | Content      | Nah         | Content                                                  |
+| Content                   | Content      | Nah         | Content                                                  |
