@@ -1,5 +1,5 @@
 # Future 2.9
-Future 2.9 Decomp i've started this whilest board.
+Future 2.9 Decomp i've started this whilest bored but no longer working on this.
 
 This isn't complete just need to go through all the classes and rename and correct everything, This project won't build plus the build settings aren't setup for this.
 
